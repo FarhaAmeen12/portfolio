@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initRoleRotator();
   initStatsObserver();
+  initRoleFilters();
   initProjectFilters();
   initResumeModal();
 });
@@ -280,10 +281,45 @@ function initStatsObserver() {
 }
 
 /* ===================================================================
-   6. PROJECT CATEGORY FILTERING
+   6. TARGET ROLES FILTERING
+   =================================================================== */
+function initRoleFilters() {
+  const filterBtns = document.querySelectorAll('.roles-filters .filter-btn');
+  const roleCards = document.querySelectorAll('.role-card[data-domain]');
+
+  if (!filterBtns.length || !roleCards.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-role-filter');
+
+      roleCards.forEach(card => {
+        const domain = card.getAttribute('data-domain');
+        if (filter === 'all' || domain === filter) {
+          card.style.display = 'flex';
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.96)';
+          setTimeout(() => {
+            card.style.transition = 'all 0.3s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          }, 30);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+/* ===================================================================
+   7. PROJECT CATEGORY FILTERING
    =================================================================== */
 function initProjectFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
+  const filterBtns = document.querySelectorAll('.project-filters .filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
   filterBtns.forEach(btn => {
@@ -313,7 +349,7 @@ function initProjectFilters() {
 }
 
 /* ===================================================================
-   7. RESUME & PROJECT MODALS
+   8. RESUME & PROJECT MODALS
    =================================================================== */
 function initResumeModal() {
   const openBtn = document.getElementById('open-cv-btn');
