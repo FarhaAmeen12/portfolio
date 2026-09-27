@@ -1,0 +1,12 @@
+# OS / Editor files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+.gemini/
+
+# Node / Scratch
+node_modules/
+dist/
+scratch/
