@@ -1,21 +1,21 @@
-# M.A. Fathima Farha — Portfolio 🛡️
+# M.A. Fathima Farha — Portfolio 🚀
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-farha--portfolio--one.vercel.app-06B6D4?style=for-the-badge&logo=vercel)](https://farha-portfolio-one.vercel.app)
-[![Status](https://img.shields.io/badge/Seeking-2026%20Cybersecurity%20Internship-22C55E?style=for-the-badge)](mailto:fathimafarhabinthameen1010@gmail.com)
-[![Cybersecurity](https://img.shields.io/badge/Certified-Cyber%20Security%202024-F59E0B?style=for-the-badge)](https://horizoncampus.edu.lk)
+[![Status](https://img.shields.io/badge/Seeking-2026%20Software%20Engineering%20Internship-22C55E?style=for-the-badge)](mailto:fathimafarhabinthameen1010@gmail.com)
+[![Undergraduate](https://img.shields.io/badge/Horizon%20Campus-Network%20%26%20Mobile%20Computing-F59E0B?style=for-the-badge)](https://horizoncampus.edu.lk)
 
 > **Live Website:** [https://farha-portfolio-one.vercel.app](https://farha-portfolio-one.vercel.app)
 
-Personal portfolio and technical showcase of **M.A. Fathima Farha**, an **Aspiring Cybersecurity Specialist & Network Security Researcher** and IT undergraduate (Network & Mobile Computing, Horizon Campus 2023–2027).
+Personal portfolio and technical showcase of **M.A. Fathima Farha**, an **IT Undergraduate specializing in Network & Mobile Computing** at Horizon Campus (2023–2027), seeking 2026 internships in **Software Engineering, Android Development, Backend Systems, or DevOps**.
 
 ---
 
 ## 🌟 Highlights
 
-- **AI-Powered Threat Detection**: Researched vehicular network security and engineered a hybrid CNN + Bidirectional GRU autoencoder reaching **90% accuracy** detecting sensor anomalies in Connected Autonomous Vehicles (CAVs) during a research residency at KPR IET, Coimbatore, India.
-- **GPS Spoofing Countermeasures**: Co-authored a manuscript on resilient navigation and cyber-physical attack mitigation in Unmanned Ground Vehicles (UGVs).
-- **Secure Android Architecture**: Built *Safe Ride LK* with a 6-fragment modular architecture and input sanitization.
-- **DevOps & CI/CD**: Engineered containerized microservices and automated deployment pipelines with Docker and GitHub Actions.
+- **Native Android Engineering**: Built *Safe Ride LK* with a 6-fragment modular navigation architecture, dynamic UI adapters (`ReportTypeAdapter`), and responsive layouts in Kotlin.
+- **Full-Stack & Cloud Deployment**: Engineered backend logic for *Spendify* (financial tracking web app) within a Git branching workflow, automated GitHub Actions CI/CD pipelines, and Docker containerization.
+- **Deep Learning Research**: Researched vehicular sensor networks and engineered a hybrid CNN + Bidirectional GRU autoencoder reaching **90% accuracy** detecting sensor anomalies in Connected Autonomous Vehicles (CAVs) during a research residency at KPR IET, Coimbatore, India.
+- **International Research Output**: Co-authored two conference research manuscripts currently under peer review for international presentation.
 
 ---
 

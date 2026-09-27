@@ -195,11 +195,11 @@ function initRoleRotator() {
   if (!target) return;
 
   const roles = [
-    'Aspiring Cybersecurity Specialist & Threat Analyst',
-    'Network Security & Threat Defense Researcher',
-    'AI-Driven Intrusion Detection (BiGRU Autoencoder • 90% Acc)',
-    'Network & Mobile Computing Undergraduate (Horizon Campus)',
-    'Secure Software Engineer (Android Kotlin • Docker • CI/CD)'
+    'Software Engineering Intern Candidate',
+    'Native Android Developer (Kotlin • Fragment Architecture)',
+    'Full-Stack & Backend Developer (JavaScript • Docker • CI/CD)',
+    'IT Undergraduate in Network & Mobile Computing (Horizon Campus)',
+    'Applied Machine Learning & Data Systems Researcher'
   ];
 
   let roleIdx = 0;
