@@ -1,8 +1,10 @@
 # M.A. Fathima Farha — Portfolio 🛡️
 
-[![Vercel Deployment](https://img.shields.io/badge/Deployed%20with-Vercel-black?style=flat&logo=vercel)](https://vercel.com)
-[![Status](https://img.shields.io/badge/Status-Seeking%202026%20Cybersecurity%20Internship-06B6D4?style=flat)](mailto:fathimafarhabinthameen1010@gmail.com)
-[![Cybersecurity](https://img.shields.io/badge/Certified-Cyber%20Security%202024-22C55E?style=flat)](https://horizoncampus.edu.lk)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-farha--portfolio--one.vercel.app-06B6D4?style=for-the-badge&logo=vercel)](https://farha-portfolio-one.vercel.app)
+[![Status](https://img.shields.io/badge/Seeking-2026%20Cybersecurity%20Internship-22C55E?style=for-the-badge)](mailto:fathimafarhabinthameen1010@gmail.com)
+[![Cybersecurity](https://img.shields.io/badge/Certified-Cyber%20Security%202024-F59E0B?style=for-the-badge)](https://horizoncampus.edu.lk)
+
+> **Live Website:** [https://farha-portfolio-one.vercel.app](https://farha-portfolio-one.vercel.app)
 
 Personal portfolio and technical showcase of **M.A. Fathima Farha**, an **Aspiring Cybersecurity Specialist & Network Security Researcher** and IT undergraduate (Network & Mobile Computing, Horizon Campus 2023–2027).
 
