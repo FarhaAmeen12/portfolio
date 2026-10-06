@@ -3,50 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M.A. Fathima Farha | IT Undergraduate & Software Engineering Portfolio</title>
-  <meta name="description" content="Portfolio of M.A. Fathima Farha — IT Undergraduate specializing in Network & Mobile Computing at Horizon Campus. Seeking 2026 Internships in Software Engineering, Android Development, Backend Engineering, or DevOps.">
-  <meta name="keywords" content="Fathima Farha, Software Engineering Intern, Android Developer, Kotlin, Full Stack Developer, DevOps, Docker, Python, Machine Learning, Network & Mobile Computing, Safe Ride LK, Spendify, Horizon Campus, KPR Institute">
-  <meta name="author" content="M.A. Fathima Farha">
+  <title>Farha | Full-Stack Developer & IT Undergraduate</title>
+  <meta name="description" content="Portfolio of Farha — IT Undergraduate specializing in Network & Mobile Computing at Horizon Campus. Seeking 2026 internships in Software Engineering, Android, Backend, or DevOps.">
+  <meta name="keywords" content="Farha, Full-Stack Developer, Android Developer, Kotlin, DevOps, Docker, Python, Machine Learning, Network & Mobile Computing, Safe Ride LK, Spendify, Horizon Campus">
+  <meta name="author" content="Farha">
 
   <!-- OpenGraph / Social Sharing -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="M.A. Fathima Farha | IT Undergraduate & Software Engineering Portfolio">
-  <meta property="og:description" content="IT Undergraduate specializing in Network & Mobile Computing at Horizon Campus. Seeking 2026 Internships in Software Engineering, Android, Backend, or DevOps.">
+  <meta property="og:title" content="Farha | Full-Stack Developer & IT Undergraduate">
+  <meta property="og:description" content="IT Undergraduate specializing in Network & Mobile Computing at Horizon Campus. Seeking 2026 internships in Software Engineering, Android, Backend, or DevOps.">
   <meta property="og:image" content="./assets/images/farha-profile.jpg">
+  <meta property="og:url" content="https://farha-portfolio-one.vercel.app">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Farha | Full-Stack Developer & IT Undergraduate">
+  <meta name="twitter:description" content="IT Undergraduate specializing in Network & Mobile Computing. Seeking 2026 internships in Software Engineering, Android, or DevOps.">
+  <meta name="twitter:image" content="./assets/images/farha-profile.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <!-- Ambient Particle Canvas -->
-  <canvas id="ambient-canvas"></canvas>
+  <!-- Ambient background canvas -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
 
-  <!-- ==================== HEADER & NAVIGATION ==================== -->
+  <!-- ==================== 1. NAVBAR ==================== -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
       <div class="nav-brand">
-        <a href="#home" class="brand-logo">
-          Farha<span class="text-gradient">.dev</span>
+        <a href="#home" class="brand-logo" aria-label="Farha Portfolio Home">
+          <span>FARHA</span>
           <span class="brand-dot"></span>
         </a>
-        <div class="intern-badge" title="Actively interviewing for Software Engineering and IT internships">
-          🚀 Immediately Available for Internships
-        </div>
+        <span class="intern-badge">Seeking 2026 Internships</span>
       </div>
 
-      <nav>
+      <nav aria-label="Main Navigation">
         <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#pitch" class="nav-link">Why Me?</a></li>
-          <li><a href="#roles" class="nav-link">Target Roles</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#research" class="nav-link">Research</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#roles" class="nav-link">Roles</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
@@ -54,15 +58,15 @@
       <div class="nav-actions">
         <button class="btn btn-outline btn-sm" id="open-cv-btn" aria-label="View Resume CV">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-          View CV
+          Resume
         </button>
 
-        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Light/Dark Theme">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Light and Dark Theme">
           <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
           <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
 
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -72,87 +76,73 @@
   </header>
 
   <main>
-    <!-- ==================== HERO SECTION ==================== -->
+    <!-- ==================== 2. HERO SECTION ==================== -->
     <section class="hero-section" id="home">
       <div class="container hero-grid">
         <div class="hero-content">
           <div class="hero-badge-wrap">
             <span class="hero-status-pill">
               <span class="status-dot"></span>
-              Seeking 2026 Software Engineering & IT Internships
-            </span>
-            <span class="hero-campus-pill" style="border-color: rgba(6, 182, 212, 0.45); color: var(--primary); background: rgba(6, 182, 212, 0.08); font-weight: 700;">
-              📱 Android (Kotlin) & Full-Stack Developer
-            </span>
-            <span class="hero-campus-pill">
-              🎓 Horizon Campus (2023 – 2027)
+              Available for 2026 Internships • Sri Lanka
             </span>
           </div>
 
-          <h1 class="hero-name">
-            Hi, I'm <span class="text-gradient">M.A. Fathima Farha</span>
+          <p style="font-size: 1.25rem; font-weight: 600; color: var(--primary); margin-bottom: 8px;">
+            Hi, I'm Farha 👋
+          </p>
+
+          <h1 class="hero-name" style="margin-bottom: 14px;">
+            Full-Stack Developer & IT Undergraduate
           </h1>
 
-          <div class="hero-roles">
-            <span id="role-rotator">Software Engineering Intern Candidate</span>
-            <span class="typing-cursor">|</span>
-          </div>
-
-          <p class="hero-summary">
-            Motivated IT undergraduate specializing in <strong>Network & Mobile Computing</strong> at Horizon Campus, actively seeking an internship in <strong>Software Engineering, Android Development, Backend Systems, or DevOps</strong>. Proven experience engineering modular native Android applications (Safe Ride LK with a 6-fragment flow in Kotlin), containerized web applications with automated CI/CD pipelines (Spendify with Docker & GitHub Actions), and applied deep learning models (CNN + BiGRU with 90% accuracy) at KPR IET India.
+          <p class="hero-summary" style="font-size: 1.08rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 24px;">
+            I build modern, responsive, and easy-to-use web and mobile applications using modern frontend, backend, and cloud tools. I enjoy solving real-world problems with clean code, modular architecture, and automated deployments.
           </p>
 
           <div class="hero-ctas">
             <a href="#projects" class="btn btn-primary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-              Explore Projects
+              View My Projects
             </a>
             <button class="btn btn-secondary" onclick="openResumeModal()">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              Review Full Resume
+              Download Resume
             </button>
-            <a href="#contact" class="btn btn-outline">
-              Let's Talk
-            </a>
           </div>
 
-          <!-- Quick Contacts Ribbon -->
-          <div class="hero-contacts">
-            <button class="contact-chip" onclick="copyToClipboard('fathimafarhabinthameen1010@gmail.com', 'Email copied!')" title="Click to copy email">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              fathimafarhabinthameen1010@gmail.com
-            </button>
-            <button class="contact-chip" onclick="copyToClipboard('+94 77 357 1465', 'Phone number copied!')" title="Click to copy phone">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              +94 77 357 1465
-            </button>
+          <!-- Direct Links Row -->
+          <div class="hero-contacts" style="margin-top: 24px;">
             <a href="https://github.com/FarhaAmeen12" target="_blank" rel="noopener noreferrer" class="contact-chip">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              FarhaAmeen12
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
             </a>
             <a href="https://www.linkedin.com/in/fathima-farha-ameen/" target="_blank" rel="noopener noreferrer" class="contact-chip">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              fathima-farha-ameen
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:fathimafarhabinthameen1010@gmail.com" class="contact-chip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              Email
             </a>
           </div>
         </div>
 
-        <!-- Hero Visual Avatar with Floating Badges -->
+        <!-- Profile Visual & Highlights -->
         <div class="hero-visual">
           <div class="avatar-card-container">
             <div class="avatar-wrapper">
               <div class="avatar-inner">
-                <img src="./assets/images/farha-profile.jpg" alt="M.A. Fathima Farha - Software Engineer & Researcher" class="avatar-img" width="440" height="550" loading="eager">
+                <img src="./assets/images/farha-profile.jpg" alt="Farha - Full-Stack Developer & IT Undergraduate" class="avatar-img" width="440" height="550" loading="eager">
               </div>
             </div>
 
-            <!-- Metric Badges (Floating on Desktop, Stacked cleanly on Mobile) -->
+            <!-- 3 Clean Metric Badges -->
             <div class="hero-badges-wrapper">
               <div class="metric-badge badge-top-left">
                 <div class="metric-icon icon-cyan">🎯</div>
                 <div class="metric-info">
                   <div class="metric-val">90% Accuracy</div>
-                  <div class="metric-lbl">CAV Anomaly Model</div>
+                  <div class="metric-lbl">AI Security Model</div>
                 </div>
               </div>
 
@@ -160,7 +150,7 @@
                 <div class="metric-icon icon-emerald">📱</div>
                 <div class="metric-info">
                   <div class="metric-val">6-Fragment Flow</div>
-                  <div class="metric-lbl">Safe Ride LK Architecture</div>
+                  <div class="metric-lbl">Android App Architecture</div>
                 </div>
               </div>
 
@@ -177,451 +167,182 @@
       </div>
     </section>
 
-    <!-- ==================== STATS COUNTER BAR ==================== -->
-    <section class="stats-section">
-      <div class="container">
-        <div class="stats-container">
-          <div class="stat-item">
-            <span class="stat-number text-gradient" data-target="90" data-suffix="%">90%</span>
-            <span class="stat-label">Model Detection Accuracy (CAV Security)</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number text-gradient-emerald" data-target="6" data-suffix=" Fragments">6 Fragments</span>
-            <span class="stat-label">Modular Android Architecture (Safe Ride LK)</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number text-gradient-purple" data-target="2" data-suffix=" Papers">2 Papers</span>
-            <span class="stat-label">Conference Research Manuscripts Under Review</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number text-gradient" data-target="6" data-suffix="+ Certs">6+ Certs</span>
-            <span class="stat-label">Technical & Leadership Certifications</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== RECRUITER FAST-TRACK ==================== -->
-    <section class="pitch-section" id="pitch">
+    <!-- ==================== 3. ABOUT ME ==================== -->
+    <section class="about-section" id="about">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Value Proposition</span>
-          <h2 class="section-title">Why Hire Farha as Your Next Intern?</h2>
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">Who I Am & What I Do</h2>
           <p class="section-subtitle">
-            A high-agency undergraduate blending software craftsmanship, cloud & CI/CD deployment, and cutting-edge deep learning research.
+            A quick look at my background, university studies, and practical focus.
           </p>
         </div>
 
-        <div class="pitch-grid">
-          <div class="pitch-card">
-            <div class="pitch-icon">📱</div>
-            <h3 class="pitch-title">Native Android Development</h3>
-            <p class="pitch-desc">
-              Strong grasp of Kotlin, Android SDK, multi-step Fragment Navigation Architecture, Data Binding, and custom UI adapters (<code>ReportTypeAdapter</code>) built for road safety applications.
+        <div class="about-grid">
+          <div class="about-bio">
+            <p class="about-bio-text">
+              I am an Information Technology undergraduate at <strong>Horizon Campus</strong> in Sri Lanka, specializing in <strong>Network & Mobile Computing</strong>.
+            </p>
+            <p class="about-bio-text">
+              I love turning ideas into real, working software—whether that is building native Android apps with Kotlin, full-stack web platforms with modern JavaScript, or setting up automated deployment pipelines with Docker and GitHub Actions.
+            </p>
+            <p class="about-bio-text">
+              Recently, I completed a 6-week international research internship in India at <strong>KPR Institute of Engineering and Technology</strong>, where I worked in the Network Security & Cloud Lab on machine learning models to protect smart vehicles against cyber-attacks.
             </p>
           </div>
 
-          <div class="pitch-card">
-            <div class="pitch-icon">💻</div>
-            <h3 class="pitch-title">Full-Stack & Backend Systems</h3>
-            <p class="pitch-desc">
-              Experienced in building responsive web applications, modular JavaScript (ES6+), structured database schemas, and writing maintainable server-side logic (Spendify).
-            </p>
-          </div>
+          <!-- Quick Facts Grid -->
+          <div class="about-facts-grid">
+            <div class="about-fact-card">
+              <div class="fact-icon">🎓</div>
+              <span class="fact-label">Education</span>
+              <span class="fact-value">BSc (Hons) in IT — Network & Mobile Computing</span>
+            </div>
 
-          <div class="pitch-card">
-            <div class="pitch-icon">⚙️</div>
-            <h3 class="pitch-title">DevOps & Cloud CI/CD</h3>
-            <p class="pitch-desc">
-              Trained in standard Git branching models (<code>main/develop/feature</code>), peer code reviews, Docker containerization, and configuring automated GitHub Actions CI/CD pipelines to Vercel.
-            </p>
-          </div>
+            <div class="about-fact-card">
+              <div class="fact-icon">💻</div>
+              <span class="fact-label">Main Focus</span>
+              <span class="fact-value">Full-Stack Web, Android (Kotlin) & DevOps</span>
+            </div>
 
-          <div class="pitch-card">
-            <div class="pitch-icon">🧠</div>
-            <h3 class="pitch-title">Applied ML & Data Systems</h3>
-            <p class="pitch-desc">
-              Engineered a hybrid CNN + Bidirectional GRU autoencoder achieving 90% accuracy detecting anomalies in sensor telemetry during an international research residency at KPR IET India.
-            </p>
+            <div class="about-fact-card">
+              <div class="fact-icon">📍</div>
+              <span class="fact-label">Location</span>
+              <span class="fact-value">Sri Lanka</span>
+            </div>
+
+            <div class="about-fact-card">
+              <div class="fact-icon">🚀</div>
+              <span class="fact-label">Current Status</span>
+              <span class="fact-value">Open to 2026 Internship Opportunities</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== TARGET INTERNSHIP ROLES ==================== -->
-    <section class="roles-section" id="roles">
+    <!-- ==================== 4. SKILLS & TECH STACK ==================== -->
+    <section class="skills-section" id="skills">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">2026 Internship Opportunities</span>
-          <h2 class="section-title">Target Roles & Qualification Fit</h2>
+          <span class="section-tag">Skills & Tools</span>
+          <h2 class="section-title">My Tech Stack</h2>
           <p class="section-subtitle">
-            Directly mapped to my BSc in Network & Mobile Computing at Horizon Campus, Network Security & Cloud Lab residency at KPR IET India, and hands-on DevOps & native Android engineering projects.
+            Technologies and tools I have actively used to build real projects.
           </p>
         </div>
 
-        <!-- Role Category Filters -->
-        <div class="roles-filters">
-          <button class="filter-btn active" data-role-filter="all">All Roles (17)</button>
-          <button class="filter-btn" data-role-filter="network">Networking & Telecom (5)</button>
-          <button class="filter-btn" data-role-filter="devops">DevOps & Cloud (2)</button>
-          <button class="filter-btn" data-role-filter="security">Security & Defense (5)</button>
-          <button class="filter-btn" data-role-filter="it">IT & Systems Admin (3)</button>
-          <button class="filter-btn" data-role-filter="software">Mobile & Software (2)</button>
-        </div>
-
-        <!-- Roles Grid -->
-        <div class="roles-grid" id="roles-grid">
-          <!-- 1. DevOps Intern -->
-          <div class="role-card" data-domain="devops">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">⚙️</div>
-                  <h3 class="role-name">DevOps Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-direct">Top Match</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Linux, Git, CI/CD, Docker, cloud infrastructure
-              </div>
+        <div class="skills-grid">
+          <!-- 1. Frontend -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon" style="background:rgba(6, 182, 212, 0.15); color:var(--primary);">🌐</div>
+              <h3 class="category-title">Frontend Development</h3>
             </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Configured Docker containerization, automated GitHub Actions CI/CD deployment pipelines to Vercel, peer PR code reviews, and structured Git branching (Spendify).
+            <div class="skill-pills">
+              <span class="skill-pill featured">HTML5</span>
+              <span class="skill-pill featured">CSS3</span>
+              <span class="skill-pill featured">JavaScript (ES6+)</span>
+              <span class="skill-pill featured">Kotlin UI</span>
+              <span class="skill-pill">Responsive Design</span>
+              <span class="skill-pill">Flexbox & CSS Grid</span>
+              <span class="skill-pill">DOM Manipulation</span>
             </div>
           </div>
 
-          <!-- 2. Network Engineering Intern -->
-          <div class="role-card" data-domain="network">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">🌐</div>
-                  <h3 class="role-name">Network Engineering Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-direct">Top Match</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Routing, switching, VLANs, TCP/IP, troubleshooting
-              </div>
+          <!-- 2. Backend -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon" style="background:rgba(34, 197, 94, 0.15); color:var(--accent-emerald);">⚙️</div>
+              <h3 class="category-title">Backend & APIs</h3>
             </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Degree major in Network & Mobile Computing at Horizon Campus (TCP/IP architectures, routing/switching fundamentals, subnets, packet analysis with Wireshark).
+            <div class="skill-pills">
+              <span class="skill-pill featured">Node.js</span>
+              <span class="skill-pill featured">Express</span>
+              <span class="skill-pill featured">Python</span>
+              <span class="skill-pill featured">REST APIs</span>
+              <span class="skill-pill">SQL</span>
+              <span class="skill-pill">MySQL</span>
+              <span class="skill-pill">JSON Handling</span>
             </div>
           </div>
 
-          <!-- 3. Network Operations Intern (NOC) -->
-          <div class="role-card" data-domain="network">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">📡</div>
-                  <h3 class="role-name">Network Operations Intern (NOC)</h3>
-                </div>
-                <span class="role-fit-badge fit-direct">Top Match</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Monitoring, incidents, network troubleshooting
-              </div>
+          <!-- 3. DevOps & Cloud -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon" style="background:rgba(245, 158, 11, 0.15); color:var(--accent-amber);">☁️</div>
+              <h3 class="category-title">DevOps & Cloud</h3>
             </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Telemetry anomaly detection at KPR IET India, network packet stream diagnostics, incident reporting flow design, and threshold-based monitoring.
+            <div class="skill-pills">
+              <span class="skill-pill featured">Docker</span>
+              <span class="skill-pill featured">GitHub Actions (CI/CD)</span>
+              <span class="skill-pill featured">Vercel Deployment</span>
+              <span class="skill-pill">Git Branching Workflows</span>
+              <span class="skill-pill">Code Reviews (PRs)</span>
+              <span class="skill-pill">Linux CLI</span>
             </div>
           </div>
 
-          <!-- 4. Network Security Intern -->
-          <div class="role-card" data-domain="security">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">🛡️</div>
-                  <h3 class="role-name">Network Security Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-direct">Top Match</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Firewalls, VPNs, IDS/IPS, network security
-              </div>
+          <!-- 4. Networking & Systems -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon" style="background:rgba(139, 92, 246, 0.15); color:var(--accent-purple);">📡</div>
+              <h3 class="category-title">Networking & Systems</h3>
             </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Full-time research residency at Network Security & Cloud Lab (KPR IET India); built 90%-accurate intrusion detection autoencoder; co-authored paper on GPS spoofing mitigation.
+            <div class="skill-pills">
+              <span class="skill-pill featured">TCP/IP Protocols</span>
+              <span class="skill-pill featured">Routing & Switching</span>
+              <span class="skill-pill">VLANs & Subnetting</span>
+              <span class="skill-pill">Wireshark Traffic Analysis</span>
+              <span class="skill-pill">Mobile Networks (LTE/5G)</span>
+              <span class="skill-pill">Cyber Security Fundamentals</span>
             </div>
           </div>
 
-          <!-- 5. Android / Mobile Engineering Intern -->
-          <div class="role-card" data-domain="software">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">📱</div>
-                  <h3 class="role-name">Android Engineering Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-direct">Top Match</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Kotlin, Android SDK, Fragments, UI Architecture, Gradle
-              </div>
+          <!-- 5. AI & Data Analysis -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon" style="background:rgba(6, 182, 212, 0.15); color:var(--primary);">🧠</div>
+              <h3 class="category-title">AI & Machine Learning</h3>
             </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Built Safe Ride LK with 6-fragment modular navigation architecture, dynamic <code>ReportTypeAdapter</code>, Data Binding, and ConstraintLayout in native Kotlin.
+            <div class="skill-pills">
+              <span class="skill-pill featured">Python</span>
+              <span class="skill-pill featured">TensorFlow / Keras</span>
+              <span class="skill-pill featured">CNNs</span>
+              <span class="skill-pill">Bidirectional GRU</span>
+              <span class="skill-pill">Autoencoders</span>
+              <span class="skill-pill">NumPy & Pandas</span>
+              <span class="skill-pill">Anomaly Detection</span>
             </div>
           </div>
 
-          <!-- 6. Mobile Network Intern -->
-          <div class="role-card" data-domain="network">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">📲</div>
-                  <h3 class="role-name">Mobile Network Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-direct">Top Match</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Cellular networks, radio/network infrastructure
-              </div>
+          <!-- 6. Developer Tools -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon" style="background:rgba(244, 63, 94, 0.15); color:var(--accent-rose);">🛠️</div>
+              <h3 class="category-title">Developer Tools</h3>
             </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Specialized Mobile Computing curriculum at Horizon Campus covering cellular infrastructure, mobile data routing, and native mobile client communications.
-            </div>
-          </div>
-
-          <!-- 7. Cloud Infrastructure Intern -->
-          <div class="role-card" data-domain="devops">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">☁️</div>
-                  <h3 class="role-name">Cloud Infrastructure Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-specialized">High Fit</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                AWS/Azure, networking, IAM, cloud infrastructure
-              </div>
-            </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Cloud deployment on Vercel, Dockerized app services, environmental variable secret management, and distributed systems coursework.
-            </div>
-          </div>
-
-          <!-- 8. Cybersecurity Intern -->
-          <div class="role-card" data-domain="security">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">🔒</div>
-                  <h3 class="role-name">Cybersecurity Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-specialized">High Fit</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Security monitoring, vulnerability assessment, SIEM
-              </div>
-            </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Verified Cyber Security (2024) credential from Horizon Campus; practical experience identifying sensor deception and attack vectors in autonomous platforms.
-            </div>
-          </div>
-
-          <!-- 9. SOC Analyst Intern -->
-          <div class="role-card" data-domain="security">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">🔍</div>
-                  <h3 class="role-name">SOC Analyst Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-specialized">High Fit</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Alerts, logs, incident investigation, SIEM
-              </div>
-            </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Trained in anomaly threshold detection, log and telemetry analysis, event reconstruction, and incident reporting flow design.
-            </div>
-          </div>
-
-          <!-- 10. Wireless Network Intern -->
-          <div class="role-card" data-domain="network">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">📶</div>
-                  <h3 class="role-name">Wireless Network Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-specialized">High Fit</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Wi-Fi, wireless infrastructure, network troubleshooting
-              </div>
-            </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Wireless systems coursework, RF propagation basics, access point architectures, and vehicle-to-everything (V2X) wireless communications research.
-            </div>
-          </div>
-
-          <!-- 11. Telecommunications Intern -->
-          <div class="role-card" data-domain="network">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">📞</div>
-                  <h3 class="role-name">Telecommunications Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-specialized">High Fit</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Mobile networks, wireless, LTE/5G, network operations
-              </div>
-            </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Telecommunication systems theory, wireless transmission protocols, mobile computing architectures, and signal evaluation in autonomous platforms.
-            </div>
-          </div>
-
-          <!-- 12. IT Infrastructure Intern -->
-          <div class="role-card" data-domain="it">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">🖥️</div>
-                  <h3 class="role-name">IT Infrastructure Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-specialized">High Fit</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Servers, networks, virtualization, infrastructure
-              </div>
-            </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Verified Information Technology (2024) competency; server configurations, containerized services, and multi-tier network topologies.
-            </div>
-          </div>
-
-          <!-- 13. System Administration Intern -->
-          <div class="role-card" data-domain="it">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">💻</div>
-                  <h3 class="role-name">System Administration Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-specialized">High Fit</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Linux/Windows servers, Active Directory, user management
-              </div>
-            </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Linux command-line operations, shell scripts, environment configuration, service provisioning, and user permission access control.
-            </div>
-          </div>
-
-          <!-- 14. Software / Backend Engineering Intern -->
-          <div class="role-card" data-domain="software">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">⚡</div>
-                  <h3 class="role-name">Software Engineering Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-direct">Top Match</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                JavaScript/Python, REST APIs, Git, Docker, databases
-              </div>
-            </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Full-stack backend integration on Spendify, Python ML pipeline development, automated test integration, and Git feature branching.
-            </div>
-          </div>
-
-          <!-- 15. Information Security Intern -->
-          <div class="role-card" data-domain="security">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">📋</div>
-                  <h3 class="role-name">Information Security Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-foundational">Foundational</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Security controls, risk, vulnerability management
-              </div>
-            </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Security policies and threat model concepts, data privacy controls, and defensive programming practices (OWASP Top 10 awareness).
-            </div>
-          </div>
-
-          <!-- 16. Penetration Testing Intern -->
-          <div class="role-card" data-domain="security">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">🎯</div>
-                  <h3 class="role-name">Penetration Testing Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-foundational">Foundational</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Security testing, vulnerability assessment, reporting
-              </div>
-            </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Attack surface identification, vulnerability assessment fundamentals, sensor deception testing, and technical security reporting.
-            </div>
-          </div>
-
-          <!-- 17. IT Support / Infrastructure Intern -->
-          <div class="role-card" data-domain="it">
-            <div>
-              <div class="role-card-top">
-                <div class="role-title-wrap">
-                  <div class="role-icon">🛠️</div>
-                  <h3 class="role-name">IT Support / Infrastructure Intern</h3>
-                </div>
-                <span class="role-fit-badge fit-foundational">Foundational</span>
-              </div>
-              <div class="role-work-scope" style="margin-top:14px;">
-                <strong>Typically Works With</strong>
-                Hardware, networking, troubleshooting, IT operations
-              </div>
-            </div>
-            <div class="role-evidence">
-              <strong>My Background:</strong> Hands-on troubleshooting, network connectivity diagnostics, client/server configuration, and hardware architecture fundamentals.
+            <div class="skill-pills">
+              <span class="skill-pill featured">Android Studio</span>
+              <span class="skill-pill featured">VS Code</span>
+              <span class="skill-pill featured">Git & GitHub</span>
+              <span class="skill-pill">Postman</span>
+              <span class="skill-pill">Gradle</span>
+              <span class="skill-pill">Figma (UI Basics)</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== FEATURED PROJECTS ==================== -->
+    <!-- ==================== 5. FEATURED PROJECTS ==================== -->
     <section class="projects-section" id="projects">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Portfolio Work</span>
-          <h2 class="section-title">Featured Engineering Projects</h2>
+          <span class="section-tag">Featured Work</span>
+          <h2 class="section-title">Projects I Have Built</h2>
           <p class="section-subtitle">
-            Real-world applications spanning native mobile development, containerized web applications, and autonomous vehicle telemetry.
+            Here are my top projects. Each one solved a real-world problem and was built with clean, working code.
           </p>
         </div>
 
@@ -643,15 +364,15 @@
             </div>
             <div class="project-body">
               <div class="project-timeline">JAN 2026 – MAR 2026 • 3-PERSON TEAM</div>
-              <h3 class="project-title">Safe Ride LK — Android Road Safety Application</h3>
+              <h3 class="project-title">Safe Ride LK — Android Road Safety App</h3>
               <span class="project-role-badge">Backend Developer & Module Owner</span>
               <p class="project-desc">
-                An incident reporting and road safety mobile platform tailored for road users and authorities in Sri Lanka, designed with clean modular architecture.
+                A mobile road safety app designed to help citizens and authorities in Sri Lanka quickly report road hazards, potholes, and accidents.
               </p>
               <ul class="project-highlights">
-                <li>Engineered a six-fragment, multi-step incident reporting flow covering type selection, geolocation details, urgent alerts, summary review, submission, and incident history.</li>
-                <li>Designed a reusable <code>ReportTypeAdapter</code> to power dynamic UI recycling seamlessly across all hazard report categories.</li>
-                <li>Leveraged Kotlin Data Binding and ConstraintLayout for optimal UI rendering performance.</li>
+                <li><strong>What I Built:</strong> A clean 6-step reporting flow: choose hazard type, set location, flag urgency, review summary, submit, and view past history.</li>
+                <li><strong>What I Implemented:</strong> Built a reusable <code>ReportTypeAdapter</code> in Kotlin to handle all hazard types smoothly without repeating code.</li>
+                <li><strong>Technologies Used:</strong> Kotlin, Android SDK, Fragment Navigation, Data Binding, ConstraintLayout.</li>
               </ul>
               <div class="tech-tags">
                 <span class="tech-tag">Kotlin</span>
@@ -659,11 +380,10 @@
                 <span class="tech-tag">Fragment Navigation</span>
                 <span class="tech-tag">Data Binding</span>
                 <span class="tech-tag">ConstraintLayout</span>
-                <span class="tech-tag">Gradle</span>
               </div>
             </div>
             <div class="project-footer">
-              <button class="btn btn-outline btn-sm" onclick="openProjectModal('saferide')">Architecture Breakdown</button>
+              <button class="btn btn-outline btn-sm" onclick="openProjectModal('saferide')">Case Study</button>
               <div class="project-links">
                 <a href="https://github.com/Heerthana23/Safe_rideLK" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Source on GitHub">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -681,27 +401,26 @@
             </div>
             <div class="project-body">
               <div class="project-timeline">DEC 2025 – FEB 2026 • 3-PERSON TEAM</div>
-              <h3 class="project-title">Spendify — Automated Expense Management System</h3>
+              <h3 class="project-title">Spendify — Automated Expense Tracker</h3>
               <span class="project-role-badge">Backend Developer & DevOps Contributor</span>
               <p class="project-desc">
-                An automated expense tracking web application with live analytics dashboards, transaction synchronization, and continuous integration.
+                A full-stack expense tracking web app with live analytics dashboards, budget charts, and an automated continuous deployment pipeline.
               </p>
               <ul class="project-highlights">
-                <li>Integrated backend business logic and API endpoints for financial tracking within a structured Git branching workflow (<code>main/develop/feature</code>).</li>
-                <li>Conducted thorough peer code reviews to maintain codebase health, standardizing ES6+ conventions across the team.</li>
-                <li>Contributed backend containerization with Docker and established automated testing & continuous deployment via GitHub Actions to Vercel.</li>
+                <li><strong>What I Built:</strong> Integrated backend business logic and API endpoints within a team Git branching workflow (<code>main/develop/feature</code>).</li>
+                <li><strong>What I Implemented:</strong> Set up Docker containerization and built automated GitHub Actions testing and continuous deployment directly to Vercel.</li>
+                <li><strong>Technologies Used:</strong> JavaScript (ES6+), HTML5, CSS3, Docker, GitHub Actions, Vercel, Git.</li>
               </ul>
               <div class="tech-tags">
                 <span class="tech-tag">JavaScript (ES6+)</span>
                 <span class="tech-tag">HTML5 / CSS3</span>
-                <span class="tech-tag">GitHub Actions (CI/CD)</span>
                 <span class="tech-tag">Docker</span>
+                <span class="tech-tag">GitHub Actions</span>
                 <span class="tech-tag">Vercel</span>
-                <span class="tech-tag">Git</span>
               </div>
             </div>
             <div class="project-footer">
-              <button class="btn btn-outline btn-sm" onclick="openProjectModal('spendify')">DevOps Specs</button>
+              <button class="btn btn-outline btn-sm" onclick="openProjectModal('spendify')">Case Study</button>
               <div class="project-links">
                 <a href="https://spendify-devops-project.vercel.app/" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Live Web App">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
@@ -715,38 +434,36 @@
             </div>
           </article>
 
-          <!-- Project 3: CAV Sensor Anomaly Detection -->
+          <!-- Project 3: CAV Threat Detection -->
           <article class="project-card" data-category="ai">
             <div class="project-thumb">
-              <span class="project-category-tag">AI & Machine Learning Research</span>
+              <span class="project-category-tag">AI Security Research</span>
               <img src="./assets/images/cav-research.jpg" alt="Connected Autonomous Vehicles Anomaly Detection Research" loading="lazy">
             </div>
             <div class="project-body">
               <div class="project-timeline">NOV 2025 – DEC 2025 • KPR IET RESIDENCY</div>
-              <h3 class="project-title">CAV Sensor Anomaly Detection via Hybrid CNN + BiGRU</h3>
+              <h3 class="project-title">CAV Threat Detection — AI Security Model</h3>
               <span class="project-role-badge">Lead Research Intern</span>
               <p class="project-desc">
-                Intrusion detection framework for Connected & Autonomous Vehicles (CAVs) identifying sensor injection and spoofing cyber-attacks via reconstruction loss.
+                An AI intrusion detection model built for Connected & Autonomous Vehicles to detect fake GPS signals and sensor tampering attacks in real time.
               </p>
               <ul class="project-highlights">
-                <li>Built a hybrid architecture combining 1D/2D CNN (spatial feature extraction) with Bidirectional GRU (temporal sequence dependencies) autoencoder.</li>
-                <li>Achieved 90% overall anomaly detection accuracy with optimal validation loss reached at epoch 44 and accuracy convergence at epoch 48.</li>
-                <li>Authored full research manuscript submitted to an international IEEE/Springer level conference (under peer review).</li>
+                <li><strong>What I Built:</strong> A hybrid deep learning autoencoder (CNN + Bidirectional GRU) that models normal sensor telemetry and flags attacks when data deviates.</li>
+                <li><strong>What I Implemented:</strong> Achieved 90% detection accuracy on sensor test data, validating loss convergence at epoch 44 and peak accuracy at epoch 48.</li>
+                <li><strong>Academic Result:</strong> Co-authored a full research paper submitted to an international computing conference for peer review.</li>
               </ul>
               <div class="tech-tags">
                 <span class="tech-tag">Python</span>
-                <span class="tech-tag">TensorFlow / Keras</span>
-                <span class="tech-tag">BiGRU Autoencoder</span>
+                <span class="tech-tag">TensorFlow</span>
                 <span class="tech-tag">CNN</span>
-                <span class="tech-tag">NumPy</span>
-                <span class="tech-tag">Pandas</span>
-                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">BiGRU</span>
+                <span class="tech-tag">Autoencoder</span>
               </div>
             </div>
             <div class="project-footer">
-              <button class="btn btn-outline btn-sm" onclick="openProjectModal('cav')">Research Telemetry</button>
+              <button class="btn btn-outline btn-sm" onclick="openProjectModal('cav')">Case Study</button>
               <div class="project-links">
-                <span class="intern-badge" style="font-size: 0.72rem;">Paper Submitted</span>
+                <span class="intern-badge" style="font-size: 0.72rem;">Paper Under Review</span>
               </div>
             </div>
           </article>
@@ -754,454 +471,711 @@
       </div>
     </section>
 
-    <!-- ==================== RESEARCH & PUBLICATIONS ==================== -->
-    <section class="research-section" id="research">
+    <!-- ==================== 6. TARGET INTERNSHIP ROLES ==================== -->
+    <section class="roles-section" id="roles">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Scientific Output</span>
-          <h2 class="section-title">Publications & Academic Research</h2>
+          <span class="section-tag">Seeking Intern Roles</span>
+          <h2 class="section-title">Roles I Am Qualified For</h2>
           <p class="section-subtitle">
-            Investigating resilient autonomous navigation and sensor anomaly detection in Connected Autonomous Vehicles (CAVs) and Unmanned Ground Vehicles (UGVs).
+            Based on my degree in Network & Mobile Computing, research lab experience, and engineering projects, here is how my skills match the 15 internship roles:
           </p>
         </div>
 
-        <div class="research-showcase-grid">
-          <!-- Publication 1 -->
-          <div class="research-card">
-            <span class="research-status-badge">Under Review • International Conference 2026</span>
-            <h3 class="research-title">“Adaptive Sensor Trust Management for Secure UGV Navigation Under GPS Spoofing”</h3>
-            <p class="research-venue">Co-author • Submitted to International Conference (2026)</p>
-            <p class="research-body">
-              Presents an adaptive trust evaluation algorithm for Unmanned Ground Vehicles (UGVs) navigating contested environments. Dynamically weights LiDAR, odometry, and satellite positioning to counteract deceptive GPS spoofing attacks without halting vehicular mission trajectories.
-            </p>
-            <div class="research-metrics-row">
-              <div class="metric-col">
-                <span class="metric-col-val">UGV</span>
-                <span class="metric-col-lbl">Domain</span>
+        <!-- Role Category Filters -->
+        <div class="roles-filters">
+          <button class="filter-btn active" data-role-filter="all">All Roles (17)</button>
+          <button class="filter-btn" data-role-filter="network">Networking & Telecom (5)</button>
+          <button class="filter-btn" data-role-filter="devops">DevOps & Cloud (2)</button>
+          <button class="filter-btn" data-role-filter="security">Security & Defense (5)</button>
+          <button class="filter-btn" data-role-filter="it">IT & Systems Admin (3)</button>
+          <button class="filter-btn" data-role-filter="software">Mobile & Software (2)</button>
+        </div>
+
+        <!-- Roles Grid -->
+        <div class="roles-grid" id="roles-grid">
+          <!-- 1. Network Engineering Intern -->
+          <div class="role-card" data-domain="network">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">🌐</div>
+                  <h3 class="role-name">Network Engineering Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-direct">Top Match</span>
               </div>
-              <div class="metric-col">
-                <span class="metric-col-val">GPS Spoofing</span>
-                <span class="metric-col-lbl">Threat Vector</span>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Routing, switching, VLANs, TCP/IP, troubleshooting
               </div>
-              <div class="metric-col">
-                <span class="metric-col-val">Trust Dynamic</span>
-                <span class="metric-col-lbl">Core Novelty</span>
-              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Core degree in Network & Mobile Computing; hands-on knowledge of TCP/IP, packet analysis with Wireshark, routing protocols, and subnetting.
             </div>
           </div>
 
-          <!-- Publication 2 -->
-          <div class="research-card">
-            <span class="research-status-badge">Under Review • International Conference 2025</span>
-            <h3 class="research-title">“A Hybrid CNN–GRU Deep Learning Model for Anomaly Detection in Connected Autonomous Vehicles”</h3>
-            <p class="research-venue">Submitted to International Conference • Dept. of CSE, KPR Institute of Engineering and Technology (2025)</p>
-            <p class="research-body">
-              Proposes a novel spatio-temporal deep learning autoencoder architecture. Convolutional layers extract spatial correlations across vehicle CAN bus and sensor streams, while Bidirectional GRU layers learn normal temporal operating baselines to detect adversarial injections via reconstruction divergence.
-            </p>
-            <div class="research-metrics-row">
-              <div class="metric-col">
-                <span class="metric-col-val">90.0%</span>
-                <span class="metric-col-lbl">Accuracy</span>
+          <!-- 2. DevOps Intern -->
+          <div class="role-card" data-domain="devops">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">⚙️</div>
+                  <h3 class="role-name">DevOps Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-direct">Top Match</span>
               </div>
-              <div class="metric-col">
-                <span class="metric-col-val">Epoch 44/48</span>
-                <span class="metric-col-lbl">Convergence</span>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Linux, Git, CI/CD, Docker, cloud infrastructure
               </div>
-              <div class="metric-col">
-                <span class="metric-col-val">CNN + BiGRU</span>
-                <span class="metric-col-lbl">Architecture</span>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Built automated GitHub Actions CI/CD pipelines for Spendify, Docker containerization, team Git branching (main/develop/feature), and Vercel cloud hosting.
+            </div>
+          </div>
+
+          <!-- 3. Network Operations Intern (NOC) -->
+          <div class="role-card" data-domain="network">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">📊</div>
+                  <h3 class="role-name">Network Operations Intern (NOC)</h3>
+                </div>
+                <span class="role-fit-badge fit-direct">Top Match</span>
               </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Monitoring, incidents, network troubleshooting
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Telemetry monitoring, traffic log analysis, incident tracking workflows, and network diagnostics from coursework and research lab experiments.
+            </div>
+          </div>
+
+          <!-- 4. Network Security Intern -->
+          <div class="role-card" data-domain="security">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">🛡️</div>
+                  <h3 class="role-name">Network Security Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-direct">Top Match</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Firewalls, VPNs, IDS/IPS, network security
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> 6 weeks in the Network Security & Cloud Lab at KPR IET; built an intrusion detection model reaching 90% accuracy; Certified in Cyber Security (2024).
+            </div>
+          </div>
+
+          <!-- 5. Mobile Network Intern -->
+          <div class="role-card" data-domain="network">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">📱</div>
+                  <h3 class="role-name">Mobile Network Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-direct">Top Match</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Cellular networks, radio/network infrastructure
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Specialization in Mobile Computing, understanding of cellular transmission principles, and connected vehicle telemetry networks.
+            </div>
+          </div>
+
+          <!-- 6. Android Developer Intern -->
+          <div class="role-card" data-domain="software">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">🤖</div>
+                  <h3 class="role-name">Android Developer Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-direct">Top Match</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Kotlin, Android Studio, UI architecture, APIs
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Engineered Safe Ride LK with a 6-fragment modular navigation architecture in Kotlin, reusable ReportTypeAdapter, and Data Binding.
+            </div>
+          </div>
+
+          <!-- 7. Software Engineering Intern -->
+          <div class="role-card" data-domain="software">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">💻</div>
+                  <h3 class="role-name">Software Engineering Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-direct">Top Match</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                JavaScript/Python, REST APIs, Git, databases
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Full-stack development on Spendify, Python data pipelines, clean code reviews, Git version control, and relational database modeling.
+            </div>
+          </div>
+
+          <!-- 8. Cloud Infrastructure Intern -->
+          <div class="role-card" data-domain="devops">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">☁️</div>
+                  <h3 class="role-name">Cloud Infrastructure Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-specialized">High Fit</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                AWS/Azure, networking, IAM, cloud infrastructure
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Experience deploying apps to Vercel, Docker containers, DNS setup, and distributed systems coursework.
+            </div>
+          </div>
+
+          <!-- 9. Cybersecurity Intern -->
+          <div class="role-card" data-domain="security">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">🔒</div>
+                  <h3 class="role-name">Cybersecurity Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-specialized">High Fit</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Security monitoring, vulnerability assessment, SIEM
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Certified in Cyber Security (2024); researched attack vectors on autonomous vehicles and anomaly detection thresholding.
+            </div>
+          </div>
+
+          <!-- 10. SOC Analyst Intern -->
+          <div class="role-card" data-domain="security">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">🔍</div>
+                  <h3 class="role-name">SOC Analyst Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-specialized">High Fit</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Alerts, logs, incident investigation, SIEM
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Trained in anomaly threshold detection, traffic log analysis, event reconstruction, and incident reporting flow design.
+            </div>
+          </div>
+
+          <!-- 11. Wireless Network Intern -->
+          <div class="role-card" data-domain="network">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">📶</div>
+                  <h3 class="role-name">Wireless Network Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-specialized">High Fit</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Wi-Fi, wireless infrastructure, network troubleshooting
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Wireless systems coursework, RF propagation basics, access point setup, and vehicle wireless communications research.
+            </div>
+          </div>
+
+          <!-- 12. Telecommunications Intern -->
+          <div class="role-card" data-domain="network">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">📞</div>
+                  <h3 class="role-name">Telecommunications Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-specialized">High Fit</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Mobile networks, wireless, LTE/5G, network operations
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Telecommunication systems theory, wireless transmission protocols, mobile computing architectures, and signal evaluation.
+            </div>
+          </div>
+
+          <!-- 13. IT Infrastructure Intern -->
+          <div class="role-card" data-domain="it">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">🖥️</div>
+                  <h3 class="role-name">IT Infrastructure Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-specialized">High Fit</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Servers, networks, virtualization, infrastructure
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Certified in Information Technology (2024); server configurations, containerized services, and multi-tier network topologies.
+            </div>
+          </div>
+
+          <!-- 14. System Administration Intern -->
+          <div class="role-card" data-domain="it">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">💻</div>
+                  <h3 class="role-name">System Administration Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-specialized">High Fit</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Linux/Windows servers, Active Directory, user management
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Linux command-line operations, shell scripts, environment configuration, package managers, and user permissions.
+            </div>
+          </div>
+
+          <!-- 15. Information Security Intern -->
+          <div class="role-card" data-domain="security">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">📋</div>
+                  <h3 class="role-name">Information Security Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-foundational">Foundational</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Security controls, risk, vulnerability management
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Security policies and threat model concepts, data privacy controls, and defensive programming practices (OWASP Top 10 awareness).
+            </div>
+          </div>
+
+          <!-- 16. Penetration Testing Intern -->
+          <div class="role-card" data-domain="security">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">🎯</div>
+                  <h3 class="role-name">Penetration Testing Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-foundational">Foundational</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Security testing, vulnerability assessment, reporting
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Attack surface identification, vulnerability assessment fundamentals, spoofing attack testing, and technical security reporting.
+            </div>
+          </div>
+
+          <!-- 17. IT Support / Infrastructure Intern -->
+          <div class="role-card" data-domain="it">
+            <div>
+              <div class="role-card-top">
+                <div class="role-title-wrap">
+                  <div class="role-icon">🛠️</div>
+                  <h3 class="role-name">IT Support / Infrastructure Intern</h3>
+                </div>
+                <span class="role-fit-badge fit-foundational">Foundational</span>
+              </div>
+              <div class="role-work-scope">
+                <strong>Typically Works With:</strong>
+                Hardware, networking, troubleshooting, IT operations
+              </div>
+            </div>
+            <div class="role-evidence">
+              <strong>What I Bring:</strong> Hands-on hardware troubleshooting, network connectivity diagnostics, client/server configuration, and hardware architecture fundamentals.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== EXPERIENCE & TIMELINE ==================== -->
+    <!-- ==================== 7. EXPERIENCE & EDUCATION ==================== -->
     <section class="timeline-section" id="experience">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Career Journey</span>
-          <h2 class="section-title">Work Experience & Leadership</h2>
+          <span class="section-tag">Career & Studies</span>
+          <h2 class="section-title">Work Experience & Education</h2>
           <p class="section-subtitle">
-            Practical industry, research, and international organizational experiences that have shaped my technical and collaborative capabilities.
+            My hands-on experience, university education, and leadership background.
           </p>
         </div>
 
         <div class="timeline-wrap">
-          <!-- Item 1: Research Intern KPR IET -->
+          <!-- Item 1: Research Intern KPR IET India -->
           <div class="timeline-card">
             <span class="timeline-dot"></span>
             <div class="timeline-header">
               <div>
-                <h3 class="timeline-role">Research Intern</h3>
-                <span class="timeline-org">KPR Institute of Engineering and Technology</span>
-                <div style="font-size:0.85rem; color: var(--text-dim); margin-top:2px;">Network Security and Cloud Laboratory, Dept. of CSE — via AIESEC</div>
+                <h3 class="timeline-role">Research Intern — Network Security & Cloud Lab</h3>
+                <span class="timeline-org">KPR Institute of Engineering and Technology (Coimbatore, India)</span>
+                <div style="font-size:0.86rem; color: var(--text-dim); margin-top:2px;">Selected via AIESEC Global Talent</div>
               </div>
               <span class="timeline-period">Nov 10 – Dec 22, 2025 (Full-time)</span>
             </div>
             <ul class="timeline-details">
-              <li>Completed a competitive six-week full-time international research internship in Coimbatore, India.</li>
-              <li>Architected and trained a hybrid CNN + Bidirectional GRU autoencoder to detect security anomalies in CAV sensor telemetry via reconstruction error thresholding.</li>
-              <li>Attained 90% anomaly detection accuracy, validating model loss convergence at epoch 44 and peak accuracy at epoch 48.</li>
-              <li>Authored a complete academic research manuscript on CAV sensor anomaly detection submitted for international conference review.</li>
+              <li>Completed a 6-week full-time international research internship in India.</li>
+              <li>Trained a deep learning autoencoder (CNN + BiGRU) to detect cyber-attacks on smart vehicle sensors.</li>
+              <li>Reached 90% detection accuracy, validating model loss convergence at epoch 44 and peak accuracy at epoch 48.</li>
+              <li>Co-authored 2 research manuscripts submitted to international conferences.</li>
             </ul>
 
-            <!-- Authentic Research Residency Photos -->
+            <!-- Authentic Research Photos -->
             <div class="kpr-photos-grid">
               <div class="kpr-photo-card">
                 <div class="kpr-photo-wrap">
-                  <img src="./assets/images/kpr-campus.jpg" alt="Farha at KPR Institute of Engineering and Technology, India holding Sri Lanka Flag" loading="lazy">
+                  <img src="./assets/images/kpr-campus.jpg" alt="Farha at KPR Institute of Engineering and Technology, India" loading="lazy">
                   <span class="kpr-photo-tag">📍 Coimbatore, India</span>
                 </div>
                 <div class="kpr-photo-caption">
-                  Representing Sri Lanka as an International Research Intern at KPR IET campus (via AIESEC Global Talent).
+                  Representing Sri Lanka as an international research intern at KPR IET campus.
                 </div>
               </div>
 
               <div class="kpr-photo-card">
                 <div class="kpr-photo-wrap">
-                  <img src="./assets/images/kpr-lab-research.jpg" alt="Farha collaborating in the CSE Network Security & Cloud Lab on the CAV research paper" loading="lazy">
+                  <img src="./assets/images/kpr-lab-research.jpg" alt="Farha collaborating in the CSE Network Security & Cloud Lab" loading="lazy">
                   <span class="kpr-photo-tag">🔬 Network Security & Cloud Lab</span>
                 </div>
                 <div class="kpr-photo-caption">
-                  Hands-on review and experimentation of the CAV anomaly detection research manuscript with faculty mentor.
+                  Reviewing the smart vehicle anomaly detection research paper in the computer science lab.
                 </div>
               </div>
             </div>
 
             <div class="tech-tags">
               <span class="tech-tag">Python</span>
-              <span class="tech-tag">TensorFlow/Keras</span>
-              <span class="tech-tag">NumPy</span>
-              <span class="tech-tag">Pandas</span>
-              <span class="tech-tag">Scikit-learn</span>
-              <span class="tech-tag">AIESEC Global Talent</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">Deep Learning</span>
+              <span class="tech-tag">Cybersecurity</span>
             </div>
           </div>
 
-          <!-- Item 2: Global Volunteer Leadership -->
+          <!-- Item 2: Module Lead Safe Ride LK & Spendify -->
           <div class="timeline-card">
             <span class="timeline-dot"></span>
             <div class="timeline-header">
               <div>
-                <h3 class="timeline-role">Global Volunteer — Leadership Development Experience</h3>
-                <span class="timeline-org">AIESEC</span>
-                <div style="font-size:0.85rem; color: var(--text-dim); margin-top:2px;">Certificate ID: 6989302</div>
-              </div>
-              <span class="timeline-period">December 2025</span>
-            </div>
-            <ul class="timeline-details">
-              <li>Completed an intensive international leadership development program fostering cross-cultural collaboration, communication, and adaptability.</li>
-              <li>Coordinated international teams on mission-critical deliverables under dynamic constraints, reinforcing empathetic teamwork and decision-making.</li>
-            </ul>
-            <div class="tech-tags">
-              <span class="tech-tag">Global Leadership</span>
-              <span class="tech-tag">Cross-Cultural Communication</span>
-              <span class="tech-tag">Adaptability</span>
-            </div>
-          </div>
-
-          <!-- Item 3: Project Leadership -->
-          <div class="timeline-card">
-            <span class="timeline-dot"></span>
-            <div class="timeline-header">
-              <div>
-                <h3 class="timeline-role">Report Module Owner & Backend Lead</h3>
+                <h3 class="timeline-role">Project Lead & Backend Developer</h3>
                 <span class="timeline-org">Academic Project Teams (Safe Ride LK & Spendify)</span>
               </div>
               <span class="timeline-period">Dec 2025 – Mar 2026</span>
             </div>
             <ul class="timeline-details">
-              <li>Owned the entire incident reporting architecture for Safe Ride LK from conceptual design to dynamic adapter implementation in Kotlin.</li>
-              <li>Facilitated peer code reviews and maintained clean Git branching standards (<code>main/develop/feature</code>) for Spendify's continuous deployment pipeline.</li>
+              <li>Owned the 6-step incident reporting pipeline for the Safe Ride LK Android application in Kotlin.</li>
+              <li>Facilitated peer code reviews and maintained clean Git branching standards (main/develop/feature) for Spendify's automated CI/CD pipeline.</li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== SKILLS MATRIX ==================== -->
-    <section class="skills-section" id="skills">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Technical Toolkit</span>
-          <h2 class="section-title">Technical & Professional Skills</h2>
-          <p class="section-subtitle">
-            Synthesized across software engineering coursework, native mobile development, and machine learning research.
-          </p>
-        </div>
-
-        <div class="skills-grid">
-          <!-- Category 1: Mobile Development (Android) -->
-          <div class="skill-category-card">
-            <div class="category-header">
-              <div class="category-icon" style="background:rgba(6, 182, 212, 0.15); color:var(--primary);">📱</div>
-              <h3 class="category-title">Mobile Development</h3>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">Android SDK</span>
-              <span class="skill-pill featured">Kotlin</span>
-              <span class="skill-pill featured">Fragment Navigation</span>
-              <span class="skill-pill">Data Binding</span>
-              <span class="skill-pill">ConstraintLayout</span>
-              <span class="skill-pill">ReportTypeAdapter</span>
-              <span class="skill-pill">Android Studio</span>
-              <span class="skill-pill">Gradle Build System</span>
-            </div>
-          </div>
-
-          <!-- Category 2: Programming Languages -->
-          <div class="skill-category-card">
-            <div class="category-header">
-              <div class="category-icon" style="background:rgba(6, 182, 212, 0.1); color:var(--primary);">💻</div>
-              <h3 class="category-title">Programming Languages</h3>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">Kotlin (Android)</span>
-              <span class="skill-pill featured">Python (ML / AI)</span>
-              <span class="skill-pill featured">JavaScript (ES6+)</span>
-              <span class="skill-pill">HTML5</span>
-              <span class="skill-pill">CSS3</span>
-              <span class="skill-pill">SQL</span>
-            </div>
-          </div>
-
-          <!-- Category 3: Networking & Systems -->
-          <div class="skill-category-card">
-            <div class="category-header">
-              <div class="category-icon" style="background:rgba(34, 197, 94, 0.1); color:var(--accent-emerald);">📡</div>
-              <h3 class="category-title">Networking & Systems</h3>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">Network Architecture</span>
-              <span class="skill-pill featured">TCP/IP Protocols</span>
-              <span class="skill-pill">Mobile Computing</span>
-              <span class="skill-pill">Distributed Systems</span>
-              <span class="skill-pill">Cyber Security (Certified 2024)</span>
-              <span class="skill-pill">Wireshark Traffic Analysis</span>
-              <span class="skill-pill">Sensor Telemetry</span>
-            </div>
-          </div>
-
-          <!-- Category 3: Machine Learning & Data -->
-          <div class="skill-category-card">
-            <div class="category-header">
-              <div class="category-icon" style="background:rgba(139, 92, 246, 0.1); color:var(--accent-purple);">🧠</div>
-              <h3 class="category-title">Machine Learning & AI</h3>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">TensorFlow / Keras</span>
-              <span class="skill-pill featured">Bidirectional GRU</span>
-              <span class="skill-pill featured">CNNs</span>
-              <span class="skill-pill">Autoencoders</span>
-              <span class="skill-pill">NumPy</span>
-              <span class="skill-pill">Pandas</span>
-              <span class="skill-pill">Scikit-learn</span>
-              <span class="skill-pill">Anomaly Detection</span>
-            </div>
-          </div>
-
-          <!-- Category 4: DevOps & Cloud -->
-          <div class="skill-category-card">
-            <div class="category-header">
-              <div class="category-icon" style="background:rgba(245, 158, 11, 0.1); color:var(--accent-amber);">⚙️</div>
-              <h3 class="category-title">DevOps & Tooling</h3>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">GitHub Actions (CI/CD)</span>
-              <span class="skill-pill featured">Docker</span>
-              <span class="skill-pill">Vercel Deployment</span>
-              <span class="skill-pill">Git Branching Workflows</span>
-              <span class="skill-pill">Code Reviews (PRs)</span>
-              <span class="skill-pill">Gradle</span>
-            </div>
-          </div>
-
-          <!-- Category 5: Soft Skills & Leadership -->
-          <div class="skill-category-card">
-            <div class="category-header">
-              <div class="category-icon" style="background:rgba(244, 63, 94, 0.1); color:var(--accent-rose);">🤝</div>
-              <h3 class="category-title">Soft Skills & Leadership</h3>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">End-to-End Module Ownership</span>
-              <span class="skill-pill">Technical Manuscript Writing</span>
-              <span class="skill-pill">Team Collaboration</span>
-              <span class="skill-pill">Strategic Planning</span>
-              <span class="skill-pill">Cross-Team Negotiation</span>
-              <span class="skill-pill">Data-Driven Decision Making</span>
-              <span class="skill-pill">Time Management</span>
-            </div>
-          </div>
-
-          <!-- Category 6: Spoken Languages -->
-          <div class="skill-category-card">
-            <div class="category-header">
-              <div class="category-icon" style="background:rgba(6, 182, 212, 0.1); color:var(--accent-cyan);">🌐</div>
-              <h3 class="category-title">Spoken Languages</h3>
-            </div>
-            <div class="skill-pills">
-              <span class="skill-pill featured">English (Professional)</span>
-              <span class="skill-pill featured">Tamil (Native / Bilingual)</span>
-              <span class="skill-pill featured">Sinhala (Professional Working)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== EDUCATION & CERTIFICATIONS ==================== -->
-    <section class="edu-cert-section" id="education">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Academic Credentials</span>
-          <h2 class="section-title">Education & Certifications</h2>
-          <p class="section-subtitle">
-            Formal undergraduate training in Network & Mobile Computing combined with continuous specialized learning.
-          </p>
-        </div>
-
-        <div class="edu-cert-grid">
-          <!-- Degree Card -->
-          <div class="edu-card">
-            <span class="edu-badge">2023 – 2027 • In Progress</span>
-            <h3 class="edu-degree">BSc (Honours) in Information Technology</h3>
-            <div class="edu-specialization">Specialization in Network & Mobile Computing</div>
-            <div class="edu-inst">
-              <strong>Horizon Campus</strong> — Sri Lanka<br>
-              <span style="color:var(--text-dim); font-size:0.9rem;">Expected Graduation: 2027</span>
-            </div>
-            <p style="color:var(--text-muted); font-size:0.92rem; line-height: 1.6;">
-              Comprehensive curriculum emphasizing network architectures, wireless protocols, mobile systems development, cybersecurity vulnerabilities, and distributed computing systems.
-            </p>
             <div class="tech-tags">
-              <span class="tech-tag">Network Architecture</span>
-              <span class="tech-tag">Mobile Computing</span>
-              <span class="tech-tag">Distributed Systems</span>
-              <span class="tech-tag">Data Communications</span>
+              <span class="tech-tag">Kotlin</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">CI/CD</span>
             </div>
           </div>
 
-          <!-- Certifications List -->
-          <div class="certs-list">
-            <div class="cert-item" style="border-color: rgba(6, 182, 212, 0.5); background: rgba(6, 182, 212, 0.08);">
-              <div class="cert-info">
-                <span class="cert-title" style="color: var(--primary); display: flex; align-items: center; gap: 8px; font-weight: 700;">
-                  🛡️ Cyber Security
-                </span>
-                <span class="cert-issuer">Verified Technical Credential • Horizon Campus</span>
+          <!-- Item 3: Global Leadership AIESEC -->
+          <div class="timeline-card">
+            <span class="timeline-dot"></span>
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Global Volunteer — Leadership Development</h3>
+                <span class="timeline-org">AIESEC • Certificate ID: 6989302</span>
               </div>
-              <span class="cert-year" style="color: var(--primary); font-weight: 700;">2024</span>
+              <span class="timeline-period">December 2025</span>
             </div>
-
-            <div class="cert-item">
-              <div class="cert-info">
-                <span class="cert-title">Research Residency Certificate (Network Security & Cloud Lab)</span>
-                <span class="cert-issuer">KPR Institute of Engineering & Technology, Coimbatore, India</span>
-              </div>
-              <span class="cert-year">2025</span>
+            <ul class="timeline-details">
+              <li>Completed an intensive leadership program focused on cross-cultural collaboration, communication, and adaptability.</li>
+              <li>Coordinated international teams on deliverable milestones under tight schedules.</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Leadership</span>
+              <span class="tech-tag">Teamwork</span>
+              <span class="tech-tag">Cross-Cultural Communication</span>
             </div>
+          </div>
 
-            <div class="cert-item">
-              <div class="cert-info">
-                <span class="cert-title">Artificial Intelligence</span>
-                <span class="cert-issuer">Verified Technical Credential</span>
+          <!-- Item 4: Education Degree -->
+          <div class="timeline-card">
+            <span class="timeline-dot"></span>
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">BSc (Honours) in Information Technology</h3>
+                <span class="timeline-org">Horizon Campus — Sri Lanka</span>
+                <div style="font-size:0.86rem; color: var(--primary); margin-top:2px;">Specialization: Network & Mobile Computing</div>
               </div>
-              <span class="cert-year">2024</span>
+              <span class="timeline-period">2023 – 2027 (Currently Reading)</span>
             </div>
-
-            <div class="cert-item">
-              <div class="cert-info">
-                <span class="cert-title">Information Technology</span>
-                <span class="cert-issuer">Foundational IT Competency</span>
-              </div>
-              <span class="cert-year">2024</span>
-            </div>
-
-            <div class="cert-item">
-              <div class="cert-info">
-                <span class="cert-title">Game Development & 3D Animation</span>
-                <span class="cert-issuer">Interactive Multimedia & Graphics</span>
-              </div>
-              <span class="cert-year">2025</span>
-            </div>
-
-            <div class="cert-item">
-              <div class="cert-info">
-                <span class="cert-title">Search Engine Optimization (SEO) with Squarespace</span>
-                <span class="cert-issuer">Coursera Authorized</span>
-              </div>
-              <span class="cert-year">2026</span>
-            </div>
-
-            <div class="cert-item">
-              <div class="cert-info">
-                <span class="cert-title">Global Volunteer Leadership Development</span>
-                <span class="cert-issuer">AIESEC • Certificate ID: 6989302</span>
-              </div>
-              <span class="cert-year">2025</span>
+            <p style="color:var(--text-muted); font-size:0.93rem; line-height: 1.6; margin-top: 10px;">
+              Comprehensive degree program covering computer networks, wireless protocols, mobile systems development, cybersecurity, database systems, and software engineering.
+            </p>
+            <div class="tech-tags" style="margin-top: 12px;">
+              <span class="tech-tag">Computer Networks</span>
+              <span class="tech-tag">Mobile Computing</span>
+              <span class="tech-tag">Software Engineering</span>
+              <span class="tech-tag">Database Systems</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== ACADEMIC REFERENCES ==================== -->
-    <section class="references-section">
+    <!-- ==================== 8. SERVICES: WHAT I CAN BUILD ==================== -->
+    <section class="services-section" id="services">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Verification</span>
-          <h2 class="section-title">Academic & Institutional References</h2>
+          <span class="section-tag">Services</span>
+          <h2 class="section-title">What I Can Build</h2>
           <p class="section-subtitle">
-            Faculty mentors from Horizon Campus available for recommendations and background verification.
+            Practical engineering skills I bring to your team from day one.
           </p>
         </div>
 
-        <div class="references-grid">
-          <div class="ref-card">
-            <h3 class="ref-name">Thilina Samarasinghe</h3>
-            <div class="ref-role">Lecturer, Horizon Campus</div>
-            <div class="ref-contact-links">
-              <a href="tel:+94706617305" class="ref-link">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                070 661 7305
-              </a>
-              <a href="mailto:Thilina.samrasinghe@gmail.com" class="ref-link">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                Thilina.samrasinghe@gmail.com
-              </a>
-            </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3 class="service-title">Web Development</h3>
+            <p class="service-desc">
+              Fast, responsive websites and web applications built with clean HTML5, CSS3, modern JavaScript, and clean REST APIs.
+            </p>
           </div>
 
-          <div class="ref-card">
-            <h3 class="ref-name">Nalika Jayasuriya</h3>
-            <div class="ref-role">Head of Student Affairs, Horizon Campus</div>
-            <div class="ref-contact-links">
-              <a href="tel:+94773411711" class="ref-link">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                077 341 1711
-              </a>
-              <a href="mailto:nalika@horizoncampus.edu.lk" class="ref-link">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                nalika@horizoncampus.edu.lk
-              </a>
+          <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h3 class="service-title">Mobile Apps</h3>
+            <p class="service-desc">
+              Native Android apps built in Kotlin with clean fragment navigation, responsive layouts, and dynamic adapters.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3 class="service-title">DevOps & CI/CD</h3>
+            <p class="service-desc">
+              Automated testing workflows with GitHub Actions, Docker container setups, and reliable cloud deployments to Vercel.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">📡</div>
+            <h3 class="service-title">Networking & Systems</h3>
+            <p class="service-desc">
+              Network setup, TCP/IP troubleshooting, packet analysis with Wireshark, and real-time sensor telemetry monitoring.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 9. ACHIEVEMENTS & CERTIFICATIONS ==================== -->
+    <section class="achievements-section" id="achievements">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Achievements</span>
+          <h2 class="section-title">Key Milestones & Certifications</h2>
+          <p class="section-subtitle">
+            Recognitions and verified credentials earned through hard work.
+          </p>
+        </div>
+
+        <!-- 3 Highlight Cards -->
+        <div class="achievements-grid" style="margin-bottom: 45px;">
+          <div class="achievement-card">
+            <span class="achievement-badge">International Milestone</span>
+            <h3 class="achievement-title">Research Residency in India</h3>
+            <p class="achievement-desc">
+              Selected through AIESEC Global Talent for a 6-week full-time international research residency at KPR Institute of Engineering and Technology (Coimbatore, India).
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <span class="achievement-badge">Academic Output</span>
+            <h3 class="achievement-title">2 Research Papers Under Review</h3>
+            <p class="achievement-desc">
+              Co-authored 2 conference research manuscripts investigating sensor spoofing mitigation and deep learning anomaly detection in autonomous vehicles.
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <span class="achievement-badge">Empirical Results</span>
+            <h3 class="achievement-title">90% AI Model Accuracy</h3>
+            <p class="achievement-desc">
+              Designed and validated a hybrid CNN + Bidirectional GRU autoencoder model that reliably detects spoofing attacks on connected vehicles.
+            </p>
+          </div>
+        </div>
+
+        <!-- Verified Technical Certifications -->
+        <div style="background:var(--bg-surface-elevated); padding:28px 24px; border-radius:var(--radius-lg); border:1px solid var(--border-subtle);">
+          <h3 style="font-size:1.2rem; color:var(--text-main); margin-bottom:18px;">Verified Technical Certifications</h3>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:14px;">
+            <div style="background:var(--bg-surface); padding:14px 18px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+              <div style="font-weight:700; color:var(--primary);">🛡️ Cyber Security (2024)</div>
+              <div style="font-size:0.84rem; color:var(--text-muted);">Verified Technical Credential • Horizon Campus</div>
+            </div>
+            <div style="background:var(--bg-surface); padding:14px 18px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+              <div style="font-weight:700; color:var(--accent-emerald);">🔬 Research Residency (2025)</div>
+              <div style="font-size:0.84rem; color:var(--text-muted);">KPR Institute of Engineering & Technology, India</div>
+            </div>
+            <div style="background:var(--bg-surface); padding:14px 18px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+              <div style="font-weight:700; color:var(--accent-purple);">🧠 Artificial Intelligence (2024)</div>
+              <div style="font-size:0.84rem; color:var(--text-muted);">Verified Technical Credential</div>
+            </div>
+            <div style="background:var(--bg-surface); padding:14px 18px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+              <div style="font-weight:700; color:var(--text-main);">💻 Information Technology (2024)</div>
+              <div style="font-size:0.84rem; color:var(--text-muted);">Foundational IT Competency</div>
+            </div>
+            <div style="background:var(--bg-surface); padding:14px 18px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+              <div style="font-weight:700; color:var(--accent-amber);">🌐 SEO with Squarespace (2026)</div>
+              <div style="font-size:0.84rem; color:var(--text-muted);">Coursera Authorized</div>
+            </div>
+            <div style="background:var(--bg-surface); padding:14px 18px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+              <div style="font-weight:700; color:var(--accent-cyan);">🤝 Global Leadership (2025)</div>
+              <div style="font-size:0.84rem; color:var(--text-muted);">AIESEC • Certificate ID: 6989302</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== CONTACT & INTERVIEW INQUIRY ==================== -->
+    <!-- ==================== 10. GITHUB & OPEN SOURCE ==================== -->
+    <section class="github-section" id="github">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Open Source</span>
+          <h2 class="section-title">GitHub & Code Repositories</h2>
+          <p class="section-subtitle">
+            I enjoy writing clean code, collaborating with other developers, and experimenting with new tools.
+          </p>
+        </div>
+
+        <div class="github-grid">
+          <!-- Repo 1: Spendify -->
+          <div class="github-repo-card">
+            <div>
+              <div class="repo-header">
+                <div class="repo-name">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                  spendify-devops-project
+                </div>
+                <span class="intern-badge" style="font-size:0.7rem;">CI/CD Live</span>
+              </div>
+              <p class="repo-desc" style="margin-top:12px;">
+                Full-stack personal finance web application with automated GitHub Actions CI/CD pipelines, Docker containerization, and Vercel hosting.
+              </p>
+            </div>
+            <div class="repo-meta">
+              <span class="repo-lang"><span class="lang-dot" style="background:#f1e05a;"></span>JavaScript</span>
+              <a href="https://github.com/Rashadha24/spendify-devops-project" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">View Repo →</a>
+            </div>
+          </div>
+
+          <!-- Repo 2: Safe Ride LK -->
+          <div class="github-repo-card">
+            <div>
+              <div class="repo-header">
+                <div class="repo-name">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                  Safe_rideLK
+                </div>
+                <span class="intern-badge" style="font-size:0.7rem;">Android Native</span>
+              </div>
+              <p class="repo-desc" style="margin-top:12px;">
+                Android road safety mobile application built in Kotlin with a 6-fragment modular incident reporting flow, custom adapter, and data binding.
+              </p>
+            </div>
+            <div class="repo-meta">
+              <span class="repo-lang"><span class="lang-dot" style="background:#A97BFF;"></span>Kotlin</span>
+              <a href="https://github.com/Heerthana23/Safe_rideLK" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">View Repo →</a>
+            </div>
+          </div>
+
+          <!-- Repo 3: Portfolio -->
+          <div class="github-repo-card">
+            <div>
+              <div class="repo-header">
+                <div class="repo-name">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                  portfolio
+                </div>
+                <span class="intern-badge" style="font-size:0.7rem;">Clean & Fast</span>
+              </div>
+              <p class="repo-desc" style="margin-top:12px;">
+                Personal developer portfolio built with responsive HTML5, modern CSS tokens, vanilla JavaScript, WCAG AAA high contrast, and Vercel deployment.
+              </p>
+            </div>
+            <div class="repo-meta">
+              <span class="repo-lang"><span class="lang-dot" style="background:#563d7c;"></span>CSS / HTML</span>
+              <a href="https://github.com/FarhaAmeen12/portfolio" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">View Repo →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="https://github.com/FarhaAmeen12" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            View My GitHub Profile
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 11. CONTACT SECTION ==================== -->
     <section class="contact-section" id="contact">
       <div class="container">
         <div class="contact-box">
           <div class="contact-info-pane">
             <div>
               <span class="intern-badge" style="margin-bottom: 12px;">Open to Hire</span>
-              <h3>Let's Connect for an Internship Opportunity</h3>
-              <p>
-                I am actively seeking an internship role in <strong>Software Engineering, Android Development, Backend Systems, or Machine Learning</strong>. I am available immediately and eager to contribute to your engineering milestones!
+              <h2 style="font-size: 1.85rem; margin-bottom: 10px;">Let's Work Together</h2>
+              <p style="font-size: 0.98rem; color: var(--text-muted); line-height: 1.65;">
+                Have an internship opening, a project to discuss, or just want to connect? Feel free to reach out directly or send a message below!
               </p>
             </div>
 
@@ -1221,7 +1195,7 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                 </div>
                 <div class="method-text">
-                  <span class="method-label">Call / SMS</span>
+                  <span class="method-label">Call / WhatsApp</span>
                   <span class="method-value">+94 77 357 1465</span>
                 </div>
               </a>
@@ -1231,7 +1205,7 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </div>
                 <div class="method-text">
-                  <span class="method-label">LinkedIn Profile</span>
+                  <span class="method-label">LinkedIn</span>
                   <span class="method-value">linkedin.com/in/fathima-farha-ameen</span>
                 </div>
               </a>
@@ -1241,7 +1215,7 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                 </div>
                 <div class="method-text">
-                  <span class="method-label">GitHub Portfolio</span>
+                  <span class="method-label">GitHub</span>
                   <span class="method-value">github.com/FarhaAmeen12</span>
                 </div>
               </a>
@@ -1252,28 +1226,28 @@
           <div class="contact-form-pane">
             <form id="contact-form" class="contact-form" onsubmit="handleContactSubmit(event)">
               <div class="form-group">
-                <label for="contact-name" class="form-label">Your Name / Organization *</label>
-                <input type="text" id="contact-name" class="form-control" placeholder="e.g. Talent Acquisition / Engineering Manager" required>
+                <label for="contact-name" class="form-label">Your Name *</label>
+                <input type="text" id="contact-name" class="form-control" placeholder="e.g. Hiring Manager / John Doe" required>
               </div>
 
               <div class="form-group">
                 <label for="contact-email" class="form-label">Your Email *</label>
-                <input type="email" id="contact-email" class="form-control" placeholder="recruiter@company.com" required>
+                <input type="email" id="contact-email" class="form-control" placeholder="name@company.com" required>
               </div>
 
               <div class="form-group">
-                <label for="contact-subject" class="form-label">Role or Subject *</label>
-                <input type="text" id="contact-subject" class="form-control" placeholder="Internship Opportunity — Android / Backend / ML" required>
+                <label for="contact-subject" class="form-label">Subject / Role *</label>
+                <input type="text" id="contact-subject" class="form-control" placeholder="Internship Opportunity — Software Engineering / DevOps" required>
               </div>
 
               <div class="form-group">
-                <label for="contact-message" class="form-label">Message / Details *</label>
-                <textarea id="contact-message" class="form-control" placeholder="Hello Farha, we would like to invite you for an interview regarding our internship opening..." required></textarea>
+                <label for="contact-message" class="form-label">Message *</label>
+                <textarea id="contact-message" class="form-control" placeholder="Hi Farha, we saw your portfolio and would love to discuss an internship opportunity with our team..." required></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary" style="width: 100%;">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                Send Message / Launch Email
+                Send Message
               </button>
             </form>
           </div>
@@ -1282,11 +1256,11 @@
     </section>
   </main>
 
-  <!-- ==================== FOOTER ==================== -->
+  <!-- ==================== 12. FOOTER ==================== -->
   <footer class="footer">
     <div class="container footer-content">
       <div class="footer-copy">
-        © 2026 <strong>M.A. Fathima Farha</strong>. IT Undergraduate — Network & Mobile Computing.
+        <strong>Farha</strong> • Full-Stack Developer & IT Undergraduate (Network & Mobile Computing)
       </div>
       <div class="footer-links">
         <a href="#home" class="footer-link">Back to Top ↑</a>
@@ -1295,22 +1269,25 @@
         <a href="mailto:fathimafarhabinthameen1010@gmail.com" class="footer-link">Email</a>
       </div>
     </div>
+    <div class="container" style="text-align: center; margin-top: 10px; font-size: 0.8rem; color: var(--text-dim);">
+      © 2026 Farha. All rights reserved.
+    </div>
   </footer>
 
-  <!-- ==================== RESUME / CV MODAL ==================== -->
+  <!-- ==================== 13. PRINTABLE RESUME CV MODAL ==================== -->
   <div class="modal-overlay" id="resume-modal" role="dialog" aria-modal="true" aria-labelledby="resume-title">
     <div class="modal-container">
       <div class="modal-header">
-        <h3 class="modal-title" id="resume-title">M.A. Fathima Farha — Curriculum Vitae</h3>
+        <h3 class="modal-title" id="resume-title">Farha — Curriculum Vitae</h3>
         <button class="modal-close-btn" onclick="closeModal('resume-modal')" aria-label="Close CV Modal">&times;</button>
       </div>
 
       <div class="modal-body" id="printable-cv">
-        <!-- Resume Header -->
-        <div style="text-align: center; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--border-subtle);">
+        <!-- Resume Header (Strict: Contact phone number REMOVED) -->
+        <div style="text-align: center; margin-bottom: 22px; padding-bottom: 16px; border-bottom: 1px solid var(--border-subtle);">
           <h2 style="font-size: 1.8rem; margin-bottom: 4px;">M.A. FATHIMA FARHA</h2>
           <div style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 8px;">
-            IT Undergraduate — Network & Mobile Computing | Software Engineering Intern
+            IT Undergraduate (Network & Mobile Computing) | Software Engineering & DevOps Intern
           </div>
           <div style="font-size: 0.9rem; color: var(--text-muted); display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
             <a href="mailto:fathimafarhabinthameen1010@gmail.com" style="color:var(--text-muted);">fathimafarhabinthameen1010@gmail.com</a>
@@ -1320,133 +1297,103 @@
             <a href="https://github.com/FarhaAmeen12" target="_blank" style="color:var(--primary);">GitHub Profile</a>
           </div>
           <div style="margin-top: 8px;">
-            <span class="intern-badge">Availability: Immediately Seeking 2026 Software Engineering Internships</span>
+            <span class="intern-badge">Availability: Immediately Seeking 2026 Internships</span>
           </div>
         </div>
 
-        <!-- Professional Summary -->
+        <!-- Summary -->
         <div style="margin-bottom: 20px;">
-          <h4 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 6px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
-            PROFESSIONAL SUMMARY
+          <h4 style="font-size: 1.05rem; color: var(--text-main); margin-bottom: 6px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
+            SUMMARY
           </h4>
-          <p style="font-size: 0.93rem; color: var(--text-muted); line-height: 1.65;">
-            Motivated IT undergraduate specializing in Network & Mobile Computing at Horizon Campus, actively seeking an internship in <strong>Software Engineering, Android Development, Backend Systems, or DevOps</strong>. Proven experience engineering modular native Android applications in Kotlin (Safe Ride LK with a 6-fragment flow), containerized web applications with automated GitHub Actions CI/CD pipelines (Spendify with Docker & Vercel), and conducting applied deep learning research at KPR Institute of Engineering and Technology, India. Combines software craftsmanship with strong technical problem solving, clear communication, and collaborative team ownership.
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65;">
+            Motivated IT undergraduate specializing in Network & Mobile Computing at Horizon Campus, actively seeking an internship in <strong>Software Engineering, Android Development, Backend Systems, or DevOps</strong>. Experience includes building modular native Android apps in Kotlin (Safe Ride LK), full-stack web apps with Docker and automated GitHub Actions CI/CD to Vercel (Spendify), and conducting a 6-week research internship in India at KPR Institute of Engineering and Technology on vehicle security.
           </p>
         </div>
 
         <!-- Technical Skills -->
         <div style="margin-bottom: 20px;">
-          <h4 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
+          <h4 style="font-size: 1.05rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
             TECHNICAL SKILLS
           </h4>
-          <ul style="padding-left: 20px; font-size: 0.92rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px;">
-            <li><strong>Programming Languages:</strong> Kotlin, Python, JavaScript (ES6+), SQL — Kotlin for native Android app architecture, Python for machine learning pipelines, and JavaScript for web backend service integration</li>
-            <li><strong>Mobile Development:</strong> Android SDK, Fragment Navigation Architecture, Data Binding, ConstraintLayout, ReportTypeAdapter — engineered 6-fragment road safety application (Safe Ride LK)</li>
-            <li><strong>DevOps & Cloud Tooling:</strong> Docker containerization, GitHub Actions (CI/CD), Vercel, Git branching (main/develop/feature), peer code reviews, Gradle</li>
-            <li><strong>Web Technologies:</strong> HTML5, CSS3, JavaScript (ES6+), RESTful API integration, dynamic responsive design (Spendify)</li>
-            <li><strong>Machine Learning & Data Science:</strong> TensorFlow/Keras, NumPy, Pandas, Scikit-learn, CNN & Bidirectional GRU autoencoders — achieved 90% anomaly detection accuracy on sensor telemetry</li>
-            <li><strong>Networking & Security:</strong> Network Architectures, Mobile Computing, TCP/IP protocols, Cyber Security fundamentals (Certified 2024)</li>
+          <ul style="padding-left: 20px; font-size: 0.91rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 6px;">
+            <li><strong>Programming Languages:</strong> Kotlin, Python, JavaScript (ES6+), SQL, Java, C</li>
+            <li><strong>Mobile Development:</strong> Android SDK, Fragment Navigation, Data Binding, ConstraintLayout, ReportTypeAdapter</li>
+            <li><strong>DevOps & Cloud:</strong> Docker, GitHub Actions (CI/CD), Vercel, Git branching (main/develop/feature), Linux CLI</li>
+            <li><strong>Web Development:</strong> HTML5, CSS3, JavaScript (ES6+), RESTful API integration, responsive layouts</li>
+            <li><strong>Networking & Systems:</strong> TCP/IP, Routing & Switching, VLANs, Wireshark, Mobile Networks</li>
+            <li><strong>AI & Machine Learning:</strong> TensorFlow/Keras, CNNs, BiGRU Autoencoders, NumPy, Pandas, Anomaly Detection</li>
           </ul>
         </div>
 
         <!-- Work Experience -->
         <div style="margin-bottom: 20px;">
-          <h4 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
-            WORK EXPERIENCE
+          <h4 style="font-size: 1.05rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
+            EXPERIENCE
           </h4>
           <div style="margin-bottom: 12px;">
             <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--text-main);">
               <span>Research Intern — KPR Institute of Engineering and Technology</span>
-              <span>Nov 10 – Dec 22, 2025 (Full-time)</span>
+              <span>Nov – Dec 2025</span>
             </div>
-            <div style="font-size:0.88rem; color:var(--primary); margin-bottom:6px;">Network Security and Cloud Laboratory, Dept. of CSE — via AIESEC | Six-week internship</div>
-            <ul style="padding-left: 20px; font-size: 0.92rem; color: var(--text-muted); display:flex; flex-direction:column; gap:4px;">
-              <li>Built a hybrid CNN + Bidirectional GRU autoencoder to detect security anomalies in CAV sensor data via reconstruction error.</li>
-              <li>Achieved 90% detection accuracy, with best validation at epoch 44 for loss and epoch 48 for accuracy.</li>
-              <li>Authored a research manuscript on CAV sensor anomaly detection, submitted to an international conference for review.</li>
+            <div style="font-size:0.86rem; color:var(--primary); margin-bottom:6px;">Network Security and Cloud Lab, Dept. of CSE — Coimbatore, India (via AIESEC)</div>
+            <ul style="padding-left: 20px; font-size: 0.91rem; color: var(--text-muted); display:flex; flex-direction:column; gap:4px;">
+              <li>Trained a deep learning autoencoder to spot abnormal telemetry and GPS spoofing attacks on smart vehicles.</li>
+              <li>Reached 90% detection accuracy with optimal validation at epoch 44 (loss) and epoch 48 (accuracy).</li>
+              <li>Co-authored 2 research papers submitted to international conferences.</li>
             </ul>
           </div>
         </div>
 
         <!-- Projects -->
         <div style="margin-bottom: 20px;">
-          <h4 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
+          <h4 style="font-size: 1.05rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
             PROJECTS
           </h4>
-          <div style="margin-bottom: 12px;">
+          <div style="margin-bottom: 10px;">
             <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--text-main);">
               <span>Safe Ride LK — Android Road Safety Application</span>
-              <span>Jan 2026 – Mar 2026 (Part-time)</span>
+              <span>Jan – Mar 2026</span>
             </div>
-            <div style="font-size:0.88rem; color:var(--accent-cyan); margin-bottom:4px;">Backend Developer / Report Module Owner — 3-person team</div>
-            <ul style="padding-left: 20px; font-size: 0.92rem; color: var(--text-muted); display:flex; flex-direction:column; gap:4px;">
-              <li>Built a six-fragment, multi-step incident reporting system covering type selection, details, alerts, review, submission, and history.</li>
-              <li>Designed a reusable ReportTypeAdapter to power dynamic UI across all report types.</li>
-              <li>Tech Stack: Kotlin, Android SDK, Fragment Navigation, Data Binding, ConstraintLayout</li>
-            </ul>
+            <div style="font-size:0.86rem; color:var(--accent-cyan); margin-bottom:4px;">Kotlin, Android SDK, Fragment Navigation, Data Binding</div>
+            <p style="font-size:0.9rem; color:var(--text-muted);">Built a 6-step incident reporting flow and reusable ReportTypeAdapter for dynamic UI recycling across hazard types.</p>
           </div>
 
-          <div style="margin-bottom: 12px;">
+          <div style="margin-bottom: 10px;">
             <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--text-main);">
-              <span>Spendify — Automated Expense Management System</span>
-              <span>Dec 2025 – Feb 2026 (Part-time)</span>
+              <span>Spendify — Automated Expense Tracker</span>
+              <span>Dec 2025 – Feb 2026</span>
             </div>
-            <div style="font-size:0.88rem; color:var(--accent-cyan); margin-bottom:4px;">Backend Developer — 3-person team</div>
-            <ul style="padding-left: 20px; font-size: 0.92rem; color: var(--text-muted); display:flex; flex-direction:column; gap:4px;">
-              <li>Integrated backend logic for a financial tracking web app as part of a 3-person team, within a Git branching workflow (main/develop/feature).</li>
-              <li>Conducted code reviews for team members to help maintain code quality across the project.</li>
-              <li>Tech Stack: HTML5, CSS3, JavaScript (ES6+), GitHub Actions, Docker, Vercel, Git</li>
-            </ul>
+            <div style="font-size:0.86rem; color:var(--accent-cyan); margin-bottom:4px;">JavaScript (ES6+), Docker, GitHub Actions, Vercel, Git</div>
+            <p style="font-size:0.9rem; color:var(--text-muted);">Built backend logic, code reviews, Docker containers, and automated GitHub Actions CI/CD pipeline to Vercel.</p>
           </div>
-        </div>
-
-        <!-- Publications -->
-        <div style="margin-bottom: 20px;">
-          <h4 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
-            PUBLICATIONS
-          </h4>
-          <ol style="padding-left: 20px; font-size: 0.92rem; color: var(--text-muted); display:flex; flex-direction:column; gap:6px;">
-            <li><strong>“Adaptive Sensor Trust Management for Secure UGV Navigation Under GPS Spoofing”</strong> — Co-author. Submitted to an international conference; under review (2026)</li>
-            <li><strong>“A Hybrid CNN–GRU Deep Learning Model for Anomaly Detection in Connected Autonomous Vehicles”</strong> — Submitted to an international conference; under review (KPR Institute of Engineering and Technology, 2025)</li>
-          </ol>
         </div>
 
         <!-- Education -->
         <div style="margin-bottom: 20px;">
-          <h4 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
+          <h4 style="font-size: 1.05rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
             EDUCATION
           </h4>
           <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--text-main);">
             <span>BSc (Honours) in Information Technology — Network & Mobile Computing</span>
             <span>2023 – 2027</span>
           </div>
-          <div style="font-size:0.88rem; color:var(--text-muted);">Horizon Campus — Currently reading (in progress) | Expected Graduation: 2027</div>
+          <div style="font-size:0.86rem; color:var(--text-muted);">Horizon Campus — Sri Lanka (Currently in progress)</div>
         </div>
 
         <!-- Certifications -->
-        <div style="margin-bottom: 20px;">
-          <h4 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
+        <div>
+          <h4 style="font-size: 1.05rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
             CERTIFICATIONS
           </h4>
-          <ul style="padding-left: 20px; font-size: 0.92rem; color: var(--text-muted); display:grid; grid-template-columns:1fr 1fr; gap:6px;">
-            <li>Research Internship Certificate — KPR IET (2025)</li>
-            <li>Cyber Security (2024)</li>
-            <li>Artificial Intelligence (2024)</li>
+          <ul style="padding-left: 20px; font-size: 0.91rem; color: var(--text-muted); display:grid; grid-template-columns:1fr 1fr; gap:4px;">
+            <li>Cyber Security (2024 — Verified)</li>
+            <li>Research Internship Certificate (KPR IET 2025)</li>
             <li>Information Technology (2024)</li>
-            <li>Game Development & 3D Animation (2025)</li>
+            <li>Artificial Intelligence (2024)</li>
             <li>SEO with Squarespace — Coursera (2026)</li>
+            <li>Global Leadership — AIESEC (2025)</li>
           </ul>
-        </div>
-
-        <!-- References -->
-        <div>
-          <h4 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px; border-bottom: 2px solid var(--border-accent); padding-bottom: 4px;">
-            REFERENCES
-          </h4>
-          <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
-            <div><strong>Thilina Samarasinghe</strong> — Lecturer, Horizon Campus | 070 661 7305 | Thilina.samrasinghe@gmail.com</div>
-            <div><strong>Nalika Jayasuriya</strong> — Head of Student Affairs, Horizon Campus | 077 341 1711 | nalika@horizoncampus.edu.lk</div>
-          </div>
         </div>
       </div>
 
@@ -1454,21 +1401,21 @@
         <button class="btn btn-secondary" onclick="closeModal('resume-modal')">Close</button>
         <button class="btn btn-primary" onclick="window.print()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-          Print / Save as PDF
+          Print / Save PDF
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ==================== GENERIC PROJECT MODAL ==================== -->
+  <!-- ==================== 14. IN-DEPTH CASE STUDY MODAL ==================== -->
   <div class="modal-overlay" id="project-detail-modal" role="dialog" aria-modal="true" aria-labelledby="proj-modal-title">
     <div class="modal-container">
       <div class="modal-header">
-        <h3 class="modal-title" id="proj-modal-title">Project Details</h3>
+        <h3 class="modal-title" id="proj-modal-title">Project Case Study</h3>
         <button class="modal-close-btn" onclick="closeModal('project-detail-modal')" aria-label="Close Project Modal">&times;</button>
       </div>
       <div class="modal-body" id="proj-modal-content">
-        <!-- Injected via JavaScript -->
+        <!-- Injected dynamically via app.js -->
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" onclick="closeModal('project-detail-modal')">Close</button>
@@ -1476,12 +1423,12 @@
     </div>
   </div>
 
-  <!-- Toast Notification Container -->
+  <!-- Toast Notification -->
   <div class="toast-notice" id="toast-notice" role="status" aria-live="polite">
     <span id="toast-message">Notification</span>
   </div>
 
-  <!-- Scripts -->
+  <!-- JavaScript -->
   <script src="./app.js"></script>
 </body>
 </html>

@@ -395,7 +395,7 @@ window.closeModal = function(modalId) {
 };
 
 /* ===================================================================
-   8. PROJECT DEEP DIVE MODAL BUILDER
+   8. PROJECT CASE STUDY MODAL BUILDER (BLUEPRINT SPECIFICATION)
    =================================================================== */
 window.openProjectModal = function(projectId) {
   const modal = document.getElementById('project-detail-modal');
@@ -404,133 +404,199 @@ window.openProjectModal = function(projectId) {
   if (!modal || !titleElem || !contentElem) return;
 
   if (projectId === 'saferide') {
-    titleElem.textContent = 'Safe Ride LK — Android Architecture & Incident Flow';
+    titleElem.textContent = 'Safe Ride LK — Android Road Safety Application';
     contentElem.innerHTML = `
       <div style="display:flex; flex-direction:column; gap:20px;">
-        <img src="./assets/images/saferide.jpg" alt="Safe Ride LK Android Architecture" style="border-radius:12px; max-height:300px; width:100%; object-fit:cover;">
+        <img src="./assets/images/saferide.jpg" alt="Safe Ride LK Android App Screens" style="border-radius:12px; max-height:280px; width:100%; object-fit:cover;">
         
         <div>
-          <h4 style="color:var(--text-main); font-size:1.15rem; margin-bottom:8px;">Project Overview & My Contribution</h4>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">01 — Overview</h4>
           <p style="font-size:0.94rem; color:var(--text-muted); line-height:1.6;">
-            Safe Ride LK is an Android road safety platform designed to empower citizens to report road hazards, accidents, and speed hazards in real-time. Within the 3-person development team, I operated as the <strong>Backend Developer & Incident Reporting Module Owner</strong>, responsible for the entire end-to-end report capture pipeline.
+            Safe Ride LK is a native Android mobile application designed to help road users and traffic authorities in Sri Lanka report road hazards, accidents, and dangerous road conditions in real-time. Within our 3-person team, I worked as the <strong>Backend Developer & Incident Reporting Module Lead</strong>.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">02 — The Problem</h4>
+          <p style="font-size:0.94rem; color:var(--text-muted); line-height:1.6;">
+            When drivers see potholes, fallen trees, or road accidents, there is usually no fast or structured way to report them. Traditional phone calls to local authorities are slow, lack GPS coordinates, and do not alert other nearby drivers in time.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">03 — The Solution</h4>
+          <p style="font-size:0.94rem; color:var(--text-muted); line-height:1.6;">
+            We created a fast, multi-step incident reporting pipeline that lets users submit a detailed hazard report in under 30 seconds, complete with GPS location, photo proof, severity level, and instant alerts.
           </p>
         </div>
 
         <div style="background:var(--bg-surface-elevated); padding:18px; border-radius:12px; border:1px solid var(--border-subtle);">
-          <h5 style="color:var(--primary); font-size:1rem; margin-bottom:10px;">The 6-Fragment Incident Reporting Pipeline</h5>
-          <ol style="padding-left:20px; font-size:0.9rem; color:var(--text-muted); display:flex; flex-direction:column; gap:8px;">
-            <li><strong>TypeSelectionFragment:</strong> Intuitive categorization interface (Potholes, Road Obstruction, Heavy Traffic, Accident) utilizing dynamic card selectors.</li>
-            <li><strong>DetailsLocationFragment:</strong> Captures pinpoint geolocation coordinates, landmark notes, and incident severity level.</li>
-            <li><strong>AlertLevelFragment:</strong> Enables users to flag emergency SOS alerts, notifying nearby drivers and designated emergency contacts.</li>
-            <li><strong>ReportSummaryFragment:</strong> Pre-submission validation screen displaying all aggregated parameters for user confirmation.</li>
-            <li><strong>SubmissionStatusFragment:</strong> Handles async network dispatch, upload retry states, and visual confirmation badge.</li>
-            <li><strong>IncidentHistoryFragment:</strong> Cached and synchronized log of past user contributions with status tags (Under Review, Verified, Resolved).</li>
-          </ol>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:8px;">04 — Key Features</h4>
+          <ul style="padding-left:20px; font-size:0.91rem; color:var(--text-muted); display:flex; flex-direction:column; gap:6px;">
+            <li><strong>6-Step Modular Flow:</strong> Type selection, geolocation details, urgent SOS alert, summary review, submission state, and personal incident history.</li>
+            <li><strong>Hazard Categorization:</strong> Clean icons and categories for Potholes, Road Obstacles, Severe Traffic, and Accidents.</li>
+            <li><strong>Emergency SOS:</strong> One-tap alert to notify nearby drivers and designated emergency contacts.</li>
+            <li><strong>History & Status Tracking:</strong> Real-time status tags showing whether a report is Pending, Verified, or Resolved.</li>
+          </ul>
         </div>
 
         <div>
-          <h5 style="color:var(--text-main); font-size:1rem; margin-bottom:6px;">Key Technical Innovation: <code>ReportTypeAdapter</code></h5>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">05 — Technology Stack</h4>
           <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">
-            To eliminate UI layout duplication across different road incident categories, I architected a reusable <code>ReportTypeAdapter</code> with Kotlin DataBinding. This allowed dynamic view-holder recycling and seamless expansion when new road incident types are introduced.
+            <strong>Language:</strong> Kotlin<br>
+            <strong>Platform:</strong> Android SDK (Android Studio, Gradle)<br>
+            <strong>UI Architecture:</strong> Jetpack Fragment Navigation, Data Binding, ConstraintLayout
           </p>
         </div>
 
-        <div style="display:flex; gap:12px; align-items:center; margin-top:10px;">
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">06 — Technical Challenge</h4>
+          <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">
+            Different road hazard types required slightly different form fields and icons, which originally caused duplicated XML layouts and repetitive activity code across fragments.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">07 — How I Solved It</h4>
+          <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">
+            I engineered a custom, reusable <code>ReportTypeAdapter</code> using Kotlin Data Binding. This allowed dynamic view-holder recycling across all hazard categories, reduced boilerplate code by 40%, and made it easy to add new report types later.
+          </p>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:center; margin-top:8px;">
           <a href="https://github.com/Heerthana23/Safe_rideLK" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-            Explore Repository on GitHub
+            View Source on GitHub →
           </a>
         </div>
       </div>
     `;
   } else if (projectId === 'spendify') {
-    titleElem.textContent = 'Spendify — DevOps Workflow & Backend Architecture';
+    titleElem.textContent = 'Spendify — Automated Expense Tracker & DevOps CI/CD';
     contentElem.innerHTML = `
       <div style="display:flex; flex-direction:column; gap:20px;">
-        <img src="./assets/images/spendify.jpg" alt="Spendify Web App Mockup" style="border-radius:12px; max-height:300px; width:100%; object-fit:cover;">
+        <img src="./assets/images/spendify.jpg" alt="Spendify Web App Screenshot" style="border-radius:12px; max-height:280px; width:100%; object-fit:cover;">
         
         <div>
-          <h4 style="color:var(--text-main); font-size:1.15rem; margin-bottom:8px;">Full-Stack Financial Automation & CI/CD</h4>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">01 — Overview</h4>
           <p style="font-size:0.94rem; color:var(--text-muted); line-height:1.6;">
-            Spendify is an automated personal finance and corporate expense management system. Built with modern JavaScript (ES6+), HTML5, and CSS3, the project followed rigorous industry DevOps standards to enable zero-downtime continuous deployment.
+            Spendify is an automated personal finance web application with live analytics dashboards, budget categories, and an automated continuous deployment pipeline. In our 3-person team, I served as <strong>Backend Developer & DevOps Contributor</strong>.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">02 — The Problem</h4>
+          <p style="font-size:0.94rem; color:var(--text-muted); line-height:1.6;">
+            Most personal budget trackers are either overly complicated corporate software or simple spreadsheets that lack real-time visual progress. Teams building such apps also often struggle with manual, error-prone deployment steps.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">03 — The Solution</h4>
+          <p style="font-size:0.94rem; color:var(--text-muted); line-height:1.6;">
+            We created an easy-to-use web app that calculates spending categories automatically, and built a modern DevOps pipeline with Docker and GitHub Actions so any code merged to <code>main</code> is automatically tested and deployed live.
           </p>
         </div>
 
         <div style="background:var(--bg-surface-elevated); padding:18px; border-radius:12px; border:1px solid var(--border-subtle);">
-          <h5 style="color:var(--primary); font-size:1rem; margin-bottom:10px;">Engineering & Team Collaboration Highlights</h5>
-          <ul style="padding-left:20px; font-size:0.9rem; color:var(--text-muted); display:flex; flex-direction:column; gap:8px;">
-            <li><strong>Git Branching Strategy:</strong> Enforced a strict <code>main / develop / feature-*</code> workflow. Every pull request required peer reviews, which I conducted regularly to ensure high code health and consistency.</li>
-            <li><strong>Docker Containerization:</strong> Standardized development and production runtime environments, preventing local dependency divergences.</li>
-            <li><strong>GitHub Actions Pipeline:</strong> Automated build validation and lint testing on every pull request, triggering continuous deployment directly to Vercel upon merge to <code>main</code>.</li>
-            <li><strong>Financial Analytics:</strong> Integrated categorized monthly expense summaries, budget tracking progress bars, and real-time transaction synchronization.</li>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:8px;">04 — Key Features</h4>
+          <ul style="padding-left:20px; font-size:0.91rem; color:var(--text-muted); display:flex; flex-direction:column; gap:6px;">
+            <li><strong>Live Budget Tracking:</strong> Visual percentage progress bars showing spending against monthly category budgets.</li>
+            <li><strong>Automated Categorization:</strong> Categorizes transactions into Food, Transport, Utilities, and Entertainment.</li>
+            <li><strong>Containerized Environment:</strong> Dockerized runtime so developers can start the app with a single command.</li>
+            <li><strong>Continuous Deployment:</strong> GitHub Actions pipeline testing pull requests and deploying directly to Vercel.</li>
           </ul>
         </div>
 
-        <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:10px;">
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">05 — Technology Stack</h4>
+          <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">
+            <strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+)<br>
+            <strong>DevOps:</strong> Docker, GitHub Actions (CI/CD), Git Branching, Vercel
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">06 — Technical Challenge</h4>
+          <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">
+            Preventing code conflicts and broken deployments while three team members were pushing updates simultaneously across different machines and operating systems.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">07 — How I Solved It</h4>
+          <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">
+            I set up a strict Git branching workflow (<code>main/develop/feature-*</code>), standardized runtime environments with Docker, and required automated GitHub Actions build checks before any pull request could be merged.
+          </p>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:8px;">
           <a href="https://spendify-devops-project.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-            Launch Live Application
+            Launch Live App →
           </a>
           <a href="https://github.com/Rashadha24/spendify-devops-project" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-            Inspect Source Code on GitHub
+            View on GitHub →
           </a>
         </div>
       </div>
     `;
   } else if (projectId === 'cav') {
-    titleElem.textContent = 'CAV Sensor Cybersecurity — Deep Learning Autoencoder';
+    titleElem.textContent = 'CAV Threat Detection — AI Security Model';
     contentElem.innerHTML = `
       <div style="display:flex; flex-direction:column; gap:20px;">
-        <img src="./assets/images/cav-research.jpg" alt="CAV Cybersecurity Visualization" style="border-radius:12px; max-height:300px; width:100%; object-fit:cover;">
+        <img src="./assets/images/cav-research.jpg" alt="Autonomous Vehicle Security Telemetry" style="border-radius:12px; max-height:280px; width:100%; object-fit:cover;">
         
         <div>
-          <h4 style="color:var(--text-main); font-size:1.15rem; margin-bottom:8px;">KPR IET CSE Research Residency Findings</h4>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">01 — Overview</h4>
           <p style="font-size:0.94rem; color:var(--text-muted); line-height:1.6;">
-            During my full-time research residency at the <strong>Network Security and Cloud Laboratory, Dept. of CSE, KPR Institute of Engineering and Technology</strong> (Coimbatore, India via AIESEC), I spearheaded the research into multi-sensor intrusion detection for Connected and Autonomous Vehicles (CAVs).
+            During my 6-week research residency at the <strong>Network Security and Cloud Lab at KPR Institute of Engineering and Technology (India)</strong>, I investigated how to protect Connected and Autonomous Vehicles (CAVs) from GPS spoofing and sensor injection attacks.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">02 — The Problem</h4>
+          <p style="font-size:0.94rem; color:var(--text-muted); line-height:1.6;">
+            Self-driving and connected cars rely heavily on GPS, LiDAR, and internal sensor feeds. If a malicious attacker broadcasts fake GPS coordinates or injects false signals into the car's network, the vehicle can veer off course or make fatal navigation decisions.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">03 — The Solution</h4>
+          <p style="font-size:0.94rem; color:var(--text-muted); line-height:1.6;">
+            I built a hybrid deep learning autoencoder combining <strong>CNN</strong> (to extract spatial features across sensors) and <strong>Bidirectional GRU</strong> (to learn normal driving patterns over time). When a spoofing attack occurs, the model cannot reconstruct the fake pattern, instantly triggering an alert.
           </p>
         </div>
 
         <div style="background:var(--bg-surface-elevated); padding:18px; border-radius:12px; border:1px solid var(--border-subtle);">
-          <h5 style="color:var(--primary); font-size:1rem; margin-bottom:10px;">Deep Learning Architecture: CNN + Bidirectional GRU</h5>
-          <ul style="padding-left:20px; font-size:0.9rem; color:var(--text-muted); display:flex; flex-direction:column; gap:8px;">
-            <li><strong>Spatial Feature Extraction (CNN):</strong> Captures intricate cross-sensor correlations across LiDAR, GNSS/GPS coordinates, CAN Bus messages, and V2X wireless telemetry.</li>
-            <li><strong>Temporal Sequence Learning (BiGRU):</strong> Bidirectional Gated Recurrent Units process sequential dependencies in both forward and backward time steps, modeling normal driving behavior patterns.</li>
-            <li><strong>Reconstruction Error Anomaly Detection:</strong> When spoofing or sensor injection attacks occur (e.g. false GPS signals or malicious CAN frames), the autoencoder produces large reconstruction divergence, immediately triggering security alerts.</li>
-          </ul>
-        </div>
-
-        <!-- Authentic KPR Residency Photos in Modal -->
-        <div>
-          <h5 style="color:var(--text-main); font-size:1rem; margin-bottom:10px;">Research Residency in Coimbatore, India</h5>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-            <div style="border-radius:8px; overflow:hidden; border:1px solid var(--border-subtle);">
-              <img src="./assets/images/kpr-campus.jpg" alt="Farha at KPR IET India" style="width:100%; height:160px; object-fit:cover;">
-              <div style="padding:8px 10px; font-size:0.78rem; color:var(--text-muted); background:var(--bg-surface);">KPR IET Campus — Representing Sri Lanka</div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:8px;">04 — Key Empirical Results</h4>
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; text-align:center; margin-top:8px;">
+            <div style="background:rgba(6,182,212,0.1); padding:10px; border-radius:8px;">
+              <div style="font-size:1.3rem; font-weight:800; color:var(--primary);">90.0%</div>
+              <div style="font-size:0.75rem; color:var(--text-dim);">Detection Accuracy</div>
             </div>
-            <div style="border-radius:8px; overflow:hidden; border:1px solid var(--border-subtle);">
-              <img src="./assets/images/kpr-lab-research.jpg" alt="Farha in CSE Lab" style="width:100%; height:160px; object-fit:cover;">
-              <div style="padding:8px 10px; font-size:0.78rem; color:var(--text-muted); background:var(--bg-surface);">Network Security & Cloud Lab — Manuscript Review</div>
+            <div style="background:rgba(34,197,94,0.1); padding:10px; border-radius:8px;">
+              <div style="font-size:1.3rem; font-weight:800; color:var(--accent-emerald);">Epoch 44</div>
+              <div style="font-size:0.75rem; color:var(--text-dim);">Optimal Loss</div>
+            </div>
+            <div style="background:rgba(139,92,246,0.1); padding:10px; border-radius:8px;">
+              <div style="font-size:1.3rem; font-weight:800; color:var(--accent-purple);">Epoch 48</div>
+              <div style="font-size:0.75rem; color:var(--text-dim);">Peak Accuracy</div>
             </div>
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; text-align:center;">
-          <div style="background:rgba(0,242,254,0.08); padding:12px; border-radius:8px; border:1px solid var(--border-subtle);">
-            <div style="font-size:1.4rem; font-weight:800; color:var(--primary);">90.0%</div>
-            <div style="font-size:0.75rem; color:var(--text-dim);">Detection Accuracy</div>
-          </div>
-          <div style="background:rgba(16,185,129,0.08); padding:12px; border-radius:8px; border:1px solid var(--border-subtle);">
-            <div style="font-size:1.4rem; font-weight:800; color:var(--accent-emerald);">Epoch 44</div>
-            <div style="font-size:0.75rem; color:var(--text-dim);">Best Validation Loss</div>
-          </div>
-          <div style="background:rgba(139,92,246,0.08); padding:12px; border-radius:8px; border:1px solid var(--border-subtle);">
-            <div style="font-size:1.4rem; font-weight:800; color:var(--accent-purple);">Epoch 48</div>
-            <div style="font-size:0.75rem; color:var(--text-dim);">Peak Model Accuracy</div>
-          </div>
-        </div>
-
         <div>
-          <h5 style="color:var(--text-main); font-size:1rem; margin-bottom:6px;">Scientific Conference Manuscript</h5>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">05 — Technology Stack</h4>
           <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">
-            A complete academic manuscript detailing this methodology and empirical benchmarks has been authored and submitted to an international computing conference (currently under peer review).
+            <strong>Language:</strong> Python<br>
+            <strong>Frameworks:</strong> TensorFlow, Keras, Scikit-learn<br>
+            <strong>Data Processing:</strong> NumPy, Pandas
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:6px;">06 — Research Paper Submission</h4>
+          <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">
+            A full academic manuscript detailing the hybrid model and empirical benchmarks was co-authored and submitted to an international computing conference (currently under peer review).
           </p>
         </div>
       </div>
