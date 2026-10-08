@@ -382,6 +382,10 @@ button {
   width: 100%;
 }
 
+.mobile-nav-cta {
+  display: none;
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
@@ -392,7 +396,7 @@ button {
 .theme-btn {
   width: 42px;
   height: 42px;
-  border-radius: 50%;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -400,8 +404,10 @@ button {
   border: 1px solid var(--border-subtle);
   color: var(--text-main);
   transition: all var(--transition-fast);
-  min-height: 42px;
-  min-width: 42px;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
 }
 
 .theme-btn:hover {
@@ -417,24 +423,33 @@ button {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: var(--radius-sm);
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   z-index: 120;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.mobile-toggle:hover {
+  border-color: var(--border-accent);
 }
 
 .mobile-toggle span {
-  width: 22px;
-  height: 2.5px;
+  width: 20px;
+  height: 2px;
   background: var(--text-main);
   border-radius: 2px;
   transition: all var(--transition-normal);
 }
 
 .mobile-toggle.active span:nth-child(1) {
-  transform: translateY(7.5px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 
 .mobile-toggle.active span:nth-child(2) {
@@ -443,7 +458,7 @@ button {
 }
 
 .mobile-toggle.active span:nth-child(3) {
-  transform: translateY(-7.5px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Buttons (Touch Friendly & Accessible) */
@@ -2595,38 +2610,99 @@ textarea.form-control {
 
 /* Mobile Screens (Under 860px) */
 @media (max-width: 860px) {
+  /* Keep navbar top bar compact, clean & uncrowded */
+  .nav-container {
+    padding: 0 4px;
+    gap: 12px;
+  }
+  .intern-badge {
+    display: none !important;
+  }
+  /* Hide the desktop text buttons in top bar on mobile to give toggle buttons full breathing room */
+  .nav-actions .btn-outline,
+  .nav-actions #open-cv-btn {
+    display: none !important;
+  }
+  .nav-actions {
+    gap: 8px;
+    flex-shrink: 0;
+  }
   .mobile-toggle {
     display: flex;
   }
+
+  /* When menu is open, navbar stays clean at top */
+  .navbar.menu-open {
+    background: var(--bg-surface) !important;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  /* Mobile menu slides down right below the sticky navbar */
   .nav-menu {
     position: fixed;
-    top: 0;
+    top: 66px;
     left: 0;
     right: 0;
     bottom: 0;
+    height: calc(100dvh - 66px);
     background: var(--bg-surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    gap: 22px;
-    transform: translateY(-100%);
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 20px 20px 40px;
+    gap: 6px;
+    transform: translateY(-120%);
     opacity: 0;
     pointer-events: none;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-    z-index: 110;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    z-index: 99;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
   }
   .nav-menu.open {
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
   }
-  .nav-link {
-    font-size: 1.25rem;
-    font-weight: 700;
+  .nav-menu li {
+    width: 100%;
   }
-  .intern-badge {
-    display: none; /* Hide in compact navbar on mobile to avoid overcrowding */
+  .nav-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 13px 18px;
+    border-radius: var(--radius-md);
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--text-main);
+    border: 1px solid transparent;
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+  .nav-link:hover,
+  .nav-link.active {
+    background: var(--bg-surface-elevated);
+    color: var(--primary);
+    border-color: var(--border-subtle);
+  }
+  .nav-link::after {
+    display: none;
+  }
+  .mobile-nav-cta {
+    display: block !important;
+    margin-top: 14px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-subtle);
+    width: 100%;
+  }
+  .mobile-nav-cta .btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
   }
   .projects-grid {
     grid-template-columns: 1fr;
