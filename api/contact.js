@@ -1,4 +1,4 @@
-const db = require('./lib/db');
+const db = require('../lib/db');
 
 // Simple in-memory rate limiting map for contact submissions (IP or email)
 const submissionRateLimit = new Map();

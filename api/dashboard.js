@@ -1,5 +1,5 @@
-const { requireAuth } = require('./lib/auth');
-const db = require('./lib/db');
+const { requireAuth } = require('../lib/auth');
+const db = require('../lib/db');
 
 module.exports = async function handler(req, res) {
   res.setHeader('Content-Type', 'application/json');
