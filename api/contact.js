@@ -69,6 +69,6 @@ module.exports = async function handler(req, res) {
     });
   } catch (error) {
     console.error('[Contact API Error]:', error);
-    return res.status(500).json({ success: false, error: 'Failed to submit contact message. Please try again.' });
+    return res.status(500).json({ success: false, error: 'Failed to submit contact message. Please try again.', details: error.message });
   }
 };
