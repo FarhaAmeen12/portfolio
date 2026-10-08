@@ -770,6 +770,161 @@
     </div>
   </div>
 
+  <!-- ================= MODAL: EXPERIENCE EDIT/CREATE ================= -->
+  <div class="modal-backdrop" id="experience-modal">
+    <div class="modal-dialog" style="max-width: 600px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 id="experience-modal-title" style="font-size: 1.25rem; font-weight: 700;">Add Experience</h3>
+        <button class="btn btn-outline btn-sm" type="button" onclick="closeExperienceModal()">&times;</button>
+      </div>
+      <form id="experience-form">
+        <input type="hidden" id="exm-id">
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label for="exm-position">Position / Role *</label>
+            <input type="text" id="exm-position" class="form-control" required placeholder="e.g. Research Intern">
+          </div>
+          <div class="form-group">
+            <label for="exm-company">Company / Institution *</label>
+            <input type="text" id="exm-company" class="form-control" required placeholder="e.g. KPR Institute">
+          </div>
+        </div>
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label for="exm-location">Location</label>
+            <input type="text" id="exm-location" class="form-control" placeholder="e.g. Coimbatore, India">
+          </div>
+          <div class="form-group">
+            <label for="exm-start">Start Date</label>
+            <input type="text" id="exm-start" class="form-control" placeholder="e.g. Jun 2025">
+          </div>
+          <div class="form-group">
+            <label for="exm-end">End Date</label>
+            <input type="text" id="exm-end" class="form-control" placeholder="e.g. Jul 2025 / Present">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exm-desc">Description</label>
+          <textarea id="exm-desc" class="form-control" rows="3" placeholder="Responsibilities and accomplishments..."></textarea>
+        </div>
+        <div class="form-row" style="display: flex; gap: 20px; align-items: center;">
+          <div class="form-group" style="width: 140px;">
+            <label for="exm-order">Display Order</label>
+            <input type="number" id="exm-order" class="form-control" value="1">
+          </div>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer; margin-top: 14px;">
+            <input type="checkbox" id="exm-visible" checked>
+            <span>Visible on Site</span>
+          </label>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+          <button type="button" class="btn btn-outline" onclick="closeExperienceModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Position</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: EDUCATION EDIT/CREATE ================= -->
+  <div class="modal-backdrop" id="education-modal">
+    <div class="modal-dialog" style="max-width: 600px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 id="education-modal-title" style="font-size: 1.25rem; font-weight: 700;">Add Education</h3>
+        <button class="btn btn-outline btn-sm" type="button" onclick="closeEducationModal()">&times;</button>
+      </div>
+      <form id="education-form">
+        <input type="hidden" id="edm-id">
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label for="edm-degree">Degree / Qualification *</label>
+            <input type="text" id="edm-degree" class="form-control" required placeholder="e.g. BIT (Hons) in Network and Mobile Computing">
+          </div>
+          <div class="form-group">
+            <label for="edm-institution">Institution *</label>
+            <input type="text" id="edm-institution" class="form-control" required placeholder="e.g. Horizon Campus (Malabe, Sri Lanka)">
+          </div>
+        </div>
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label for="edm-field">Field / Major</label>
+            <input type="text" id="edm-field" class="form-control" placeholder="e.g. Network & Mobile Computing">
+          </div>
+          <div class="form-group">
+            <label for="edm-start">Start Year</label>
+            <input type="text" id="edm-start" class="form-control" placeholder="e.g. 2023">
+          </div>
+          <div class="form-group">
+            <label for="edm-end">End Year</label>
+            <input type="text" id="edm-end" class="form-control" placeholder="e.g. 2027">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="edm-desc">Description</label>
+          <textarea id="edm-desc" class="form-control" rows="3" placeholder="Key coursework, honors, focus areas..."></textarea>
+        </div>
+        <div class="form-row" style="display: flex; gap: 20px; align-items: center;">
+          <div class="form-group" style="width: 140px;">
+            <label for="edm-order">Display Order</label>
+            <input type="number" id="edm-order" class="form-control" value="1">
+          </div>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer; margin-top: 14px;">
+            <input type="checkbox" id="edm-visible" checked>
+            <span>Visible on Site</span>
+          </label>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+          <button type="button" class="btn btn-outline" onclick="closeEducationModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Education</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: CERTIFICATION EDIT/CREATE ================= -->
+  <div class="modal-backdrop" id="cert-modal">
+    <div class="modal-dialog" style="max-width: 600px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 id="cert-modal-title" style="font-size: 1.25rem; font-weight: 700;">Add Certification</h3>
+        <button class="btn btn-outline btn-sm" type="button" onclick="closeCertModal()">&times;</button>
+      </div>
+      <form id="cert-form">
+        <input type="hidden" id="cm-id">
+        <div class="form-group">
+          <label for="cm-name">Certification Name *</label>
+          <input type="text" id="cm-name" class="form-control" required placeholder="e.g. Introduction to Cyber Security: Stay Safe Online">
+        </div>
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label for="cm-org">Issuing Organization *</label>
+            <input type="text" id="cm-org" class="form-control" required placeholder="e.g. OpenLearn | The Open University (UK)">
+          </div>
+          <div class="form-group">
+            <label for="cm-date">Issue Date</label>
+            <input type="text" id="cm-date" class="form-control" placeholder="e.g. October 2026">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cm-url">Verification / Credential URL</label>
+          <input type="url" id="cm-url" class="form-control" placeholder="https://www.open.edu/openlearn/...">
+        </div>
+        <div class="form-row" style="display: flex; gap: 20px; align-items: center;">
+          <div class="form-group" style="width: 140px;">
+            <label for="cm-order">Display Order</label>
+            <input type="number" id="cm-order" class="form-control" value="1">
+          </div>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer; margin-top: 14px;">
+            <input type="checkbox" id="cm-visible" checked>
+            <span>Visible on Site</span>
+          </label>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+          <button type="button" class="btn btn-outline" onclick="closeCertModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Certification</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- Admin Application Logic -->
   <script>
     // 1. Auth Guard
@@ -809,6 +964,14 @@
         settings: 'Global Site Settings'
       };
       document.getElementById('page-title').textContent = titles[tabId] || 'Admin Dashboard';
+      if (tabId === 'projects') loadProjects();
+      if (tabId === 'skills') loadSkills();
+      if (tabId === 'experience') loadExperience();
+      if (tabId === 'education') loadEducation();
+      if (tabId === 'certifications') loadCertifications();
+      if (tabId === 'messages') loadMessages();
+      if (tabId === 'settings') loadSettings();
+      if (tabId === 'dashboard') loadDashboard();
     }
 
     document.querySelectorAll('.admin-nav-item[data-tab]').forEach(item => {
@@ -1077,7 +1240,276 @@
       loadDashboard();
     });
 
-    // 5. Messages Inbox
+    // 5. Experience CRUD
+    let experienceList = [];
+    async function loadExperience() {
+      try {
+        const res = await fetch('/api/experience');
+        const data = await res.json();
+        if (data.success && data.experience) {
+          experienceList = data.experience;
+          const tbody = document.getElementById('experience-table-tbody');
+          if (experienceList.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">No experience records found.</td></tr>`;
+            return;
+          }
+          tbody.innerHTML = experienceList.map(e => `
+            <tr>
+              <td style="font-weight: 600;">${escapeHtml(e.position)}</td>
+              <td style="color: var(--text-muted);">${escapeHtml(e.company)}</td>
+              <td>${escapeHtml(e.startDate || '')} – ${escapeHtml(e.endDate || 'Present')}</td>
+              <td>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-outline btn-sm" onclick="editExperience('${e.id}')">Edit</button>
+                  <button class="btn btn-outline btn-sm" style="color: #ef4444;" onclick="deleteExperience('${e.id}')">Delete</button>
+                </div>
+              </td>
+            </tr>
+          `).join('');
+        }
+      } catch (e) {
+        console.error('Failed to load experience:', e);
+      }
+    }
+    function openExperienceModal() {
+      document.getElementById('experience-modal-title').textContent = 'Add Experience';
+      document.getElementById('experience-form').reset();
+      document.getElementById('exm-id').value = '';
+      document.getElementById('experience-modal').classList.add('show');
+    }
+    function closeExperienceModal() {
+      document.getElementById('experience-modal').classList.remove('show');
+      document.getElementById('experience-form').reset();
+      document.getElementById('exm-id').value = '';
+    }
+    function editExperience(id) {
+      const e = experienceList.find(x => x.id === id);
+      if (!e) return;
+      document.getElementById('experience-modal-title').textContent = 'Edit Experience';
+      document.getElementById('exm-id').value = e.id;
+      document.getElementById('exm-position').value = e.position || '';
+      document.getElementById('exm-company').value = e.company || '';
+      document.getElementById('exm-location').value = e.location || '';
+      document.getElementById('exm-start').value = e.startDate || '';
+      document.getElementById('exm-end').value = e.endDate || '';
+      document.getElementById('exm-desc').value = e.description || '';
+      document.getElementById('exm-order').value = e.displayOrder || 1;
+      document.getElementById('exm-visible').checked = e.visible !== false;
+      document.getElementById('experience-modal').classList.add('show');
+    }
+    async function deleteExperience(id) {
+      if (!confirm('Delete this experience entry?')) return;
+      await fetch(`/api/experience?id=${id}`, {
+        method: 'DELETE',
+        headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
+      });
+      loadExperience();
+    }
+    document.getElementById('experience-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('exm-id').value;
+      const payload = {
+        position: document.getElementById('exm-position').value,
+        company: document.getElementById('exm-company').value,
+        location: document.getElementById('exm-location').value,
+        startDate: document.getElementById('exm-start').value,
+        endDate: document.getElementById('exm-end').value,
+        description: document.getElementById('exm-desc').value,
+        displayOrder: Number(document.getElementById('exm-order').value) || 1,
+        visible: document.getElementById('exm-visible').checked
+      };
+      if (id) payload.id = id;
+      await fetch('/api/experience', {
+        method: id ? 'PUT' : 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {})
+        },
+        body: JSON.stringify(payload)
+      });
+      closeExperienceModal();
+      loadExperience();
+    });
+
+    // 6. Education CRUD
+    let educationList = [];
+    async function loadEducation() {
+      try {
+        const res = await fetch('/api/education');
+        const data = await res.json();
+        if (data.success && data.education) {
+          educationList = data.education;
+          const tbody = document.getElementById('education-table-tbody');
+          if (educationList.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">No education records found.</td></tr>`;
+            return;
+          }
+          tbody.innerHTML = educationList.map(e => `
+            <tr>
+              <td style="font-weight: 600;">${escapeHtml(e.degree)}</td>
+              <td style="color: var(--text-muted);">${escapeHtml(e.institution)}</td>
+              <td>${escapeHtml(e.startYear || '')} – ${escapeHtml(e.endYear || '')}</td>
+              <td>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-outline btn-sm" onclick="editEducation('${e.id}')">Edit</button>
+                  <button class="btn btn-outline btn-sm" style="color: #ef4444;" onclick="deleteEducation('${e.id}')">Delete</button>
+                </div>
+              </td>
+            </tr>
+          `).join('');
+        }
+      } catch (e) {
+        console.error('Failed to load education:', e);
+      }
+    }
+    function openEducationModal() {
+      document.getElementById('education-modal-title').textContent = 'Add Education';
+      document.getElementById('education-form').reset();
+      document.getElementById('edm-id').value = '';
+      document.getElementById('education-modal').classList.add('show');
+    }
+    function closeEducationModal() {
+      document.getElementById('education-modal').classList.remove('show');
+      document.getElementById('education-form').reset();
+      document.getElementById('edm-id').value = '';
+    }
+    function editEducation(id) {
+      const e = educationList.find(x => x.id === id);
+      if (!e) return;
+      document.getElementById('education-modal-title').textContent = 'Edit Education';
+      document.getElementById('edm-id').value = e.id;
+      document.getElementById('edm-degree').value = e.degree || '';
+      document.getElementById('edm-institution').value = e.institution || '';
+      document.getElementById('edm-field').value = e.field || '';
+      document.getElementById('edm-start').value = e.startYear || '';
+      document.getElementById('edm-end').value = e.endYear || '';
+      document.getElementById('edm-desc').value = e.description || '';
+      document.getElementById('edm-order').value = e.displayOrder || 1;
+      document.getElementById('edm-visible').checked = e.visible !== false;
+      document.getElementById('education-modal').classList.add('show');
+    }
+    async function deleteEducation(id) {
+      if (!confirm('Delete this education entry?')) return;
+      await fetch(`/api/education?id=${id}`, {
+        method: 'DELETE',
+        headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
+      });
+      loadEducation();
+    }
+    document.getElementById('education-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('edm-id').value;
+      const payload = {
+        degree: document.getElementById('edm-degree').value,
+        institution: document.getElementById('edm-institution').value,
+        field: document.getElementById('edm-field').value,
+        startYear: document.getElementById('edm-start').value,
+        endYear: document.getElementById('edm-end').value,
+        description: document.getElementById('edm-desc').value,
+        displayOrder: Number(document.getElementById('edm-order').value) || 1,
+        visible: document.getElementById('edm-visible').checked
+      };
+      if (id) payload.id = id;
+      await fetch('/api/education', {
+        method: id ? 'PUT' : 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {})
+        },
+        body: JSON.stringify(payload)
+      });
+      closeEducationModal();
+      loadEducation();
+    });
+
+    // 7. Certifications CRUD
+    let certList = [];
+    async function loadCertifications() {
+      try {
+        const res = await fetch('/api/certifications');
+        const data = await res.json();
+        if (data.success && data.certifications) {
+          certList = data.certifications;
+          const tbody = document.getElementById('cert-table-tbody');
+          if (certList.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">No certifications found.</td></tr>`;
+            return;
+          }
+          tbody.innerHTML = certList.map(c => `
+            <tr>
+              <td style="font-weight: 600;">${escapeHtml(c.name)}</td>
+              <td style="color: var(--text-muted);">${escapeHtml(c.organization)}</td>
+              <td>${escapeHtml(c.issueDate || '')}</td>
+              <td>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-outline btn-sm" onclick="editCert('${c.id}')">Edit</button>
+                  <button class="btn btn-outline btn-sm" style="color: #ef4444;" onclick="deleteCert('${c.id}')">Delete</button>
+                </div>
+              </td>
+            </tr>
+          `).join('');
+        }
+      } catch (e) {
+        console.error('Failed to load certifications:', e);
+      }
+    }
+    function openCertModal() {
+      document.getElementById('cert-modal-title').textContent = 'Add Certification';
+      document.getElementById('cert-form').reset();
+      document.getElementById('cm-id').value = '';
+      document.getElementById('cert-modal').classList.add('show');
+    }
+    function closeCertModal() {
+      document.getElementById('cert-modal').classList.remove('show');
+      document.getElementById('cert-form').reset();
+      document.getElementById('cm-id').value = '';
+    }
+    function editCert(id) {
+      const c = certList.find(x => x.id === id);
+      if (!c) return;
+      document.getElementById('cert-modal-title').textContent = 'Edit Certification';
+      document.getElementById('cm-id').value = c.id;
+      document.getElementById('cm-name').value = c.name || '';
+      document.getElementById('cm-org').value = c.organization || '';
+      document.getElementById('cm-date').value = c.issueDate || '';
+      document.getElementById('cm-url').value = c.credentialUrl || '';
+      document.getElementById('cm-order').value = c.displayOrder || 1;
+      document.getElementById('cm-visible').checked = c.visible !== false;
+      document.getElementById('cert-modal').classList.add('show');
+    }
+    async function deleteCert(id) {
+      if (!confirm('Delete this certification?')) return;
+      await fetch(`/api/certifications?id=${id}`, {
+        method: 'DELETE',
+        headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
+      });
+      loadCertifications();
+    }
+    document.getElementById('cert-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('cm-id').value;
+      const payload = {
+        name: document.getElementById('cm-name').value,
+        organization: document.getElementById('cm-org').value,
+        issueDate: document.getElementById('cm-date').value,
+        credentialUrl: document.getElementById('cm-url').value,
+        displayOrder: Number(document.getElementById('cm-order').value) || 1,
+        visible: document.getElementById('cm-visible').checked
+      };
+      if (id) payload.id = id;
+      await fetch('/api/certifications', {
+        method: id ? 'PUT' : 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {})
+        },
+        body: JSON.stringify(payload)
+      });
+      closeCertModal();
+      loadCertifications();
+    });
+
+    // 8. Messages Inbox
     let messagesList = [];
     async function loadMessages() {
       try {
@@ -1229,6 +1661,9 @@
         loadDashboard();
         loadProjects();
         loadSkills();
+        loadExperience();
+        loadEducation();
+        loadCertifications();
         loadMessages();
         loadSettings();
       }
