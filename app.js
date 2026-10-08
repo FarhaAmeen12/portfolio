@@ -48,8 +48,8 @@ function initAmbientCanvas() {
     ctx.clearRect(0, 0, width, height);
 
     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    const dotColor = isLight ? 'rgba(6, 182, 212, ' : 'rgba(34, 211, 238, ';
-    const lineColor = isLight ? 'rgba(6, 182, 212, 0.06)' : 'rgba(6, 182, 212, 0.08)';
+    const dotColor = isLight ? 'rgba(8, 145, 178, ' : 'rgba(34, 211, 238, ';
+    const lineColor = isLight ? 'rgba(8, 145, 178, 0.22)' : 'rgba(6, 182, 212, 0.12)';
 
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
@@ -61,9 +61,10 @@ function initAmbientCanvas() {
       if (p.y < 0) p.y = height;
       if (p.y > height) p.y = 0;
 
+      const alpha = isLight ? (p.alpha * 0.6 + 0.38) : p.alpha;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = dotColor + p.alpha + ')';
+      ctx.arc(p.x, p.y, isLight ? p.radius * 1.15 : p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = dotColor + alpha + ')';
       ctx.fill();
 
       // Connect near particles
@@ -73,12 +74,12 @@ function initAmbientCanvas() {
         const dy = p.y - p2.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < 130) {
+        if (dist < 135) {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(p2.x, p2.y);
           ctx.strokeStyle = lineColor;
-          ctx.lineWidth = 0.75;
+          ctx.lineWidth = isLight ? 1.0 : 0.75;
           ctx.stroke();
         }
       }

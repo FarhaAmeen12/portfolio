@@ -49,8 +49,10 @@
   --grad-amber: linear-gradient(135deg, #d97706 0%, #b45309 100%);
   --grad-purple: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
   --grad-dark-card: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  --grad-mesh: radial-gradient(circle at 10% 20%, rgba(8, 145, 178, 0.08) 0%, transparent 45%),
-               radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.06) 0%, transparent 50%);
+  --grad-mesh: radial-gradient(circle at 15% 15%, rgba(8, 145, 178, 0.16) 0%, transparent 45%),
+               radial-gradient(circle at 85% 75%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+               linear-gradient(to right, rgba(15, 23, 42, 0.048) 1px, transparent 1px),
+               linear-gradient(to bottom, rgba(15, 23, 42, 0.048) 1px, transparent 1px);
 
   /* UI Metrics */
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -106,8 +108,10 @@
 
   --grad-hero: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%);
   --grad-dark-card: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-  --grad-mesh: radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
-               radial-gradient(circle at 85% 75%, rgba(30, 41, 59, 0.4) 0%, transparent 50%);
+  --grad-mesh: radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.16) 0%, transparent 45%),
+               radial-gradient(circle at 85% 75%, rgba(30, 41, 59, 0.55) 0%, transparent 50%),
+               linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+               linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
 /* --- Global Reset & Accessibility --- */
@@ -129,6 +133,7 @@ body {
   color: var(--text-main);
   line-height: 1.65;
   background-image: var(--grad-mesh);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
   background-attachment: fixed;
   overflow-x: hidden;
   position: relative;
@@ -145,7 +150,8 @@ body {
   height: 100vh;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.6;
+  opacity: 0.85;
+  transition: opacity var(--transition-normal);
 }
 
 /* Typography Helpers */
@@ -518,6 +524,20 @@ button {
   padding: clamp(110px, 15vh, 150px) 0 70px;
   position: relative;
   overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(880px, 92vw);
+  height: 520px;
+  background: radial-gradient(ellipse at center, rgba(8, 145, 178, 0.18) 0%, rgba(124, 58, 237, 0.09) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
 }
 
 .hero-grid {
