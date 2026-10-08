@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAV Anomaly Detection — Case Study | Farha Portfolio</title>
+  <meta name="description" content="Technical Case Study: Connected & Autonomous Vehicles (CAV) Anomaly Detection Framework developed during research residency at KPR Institute of Engineering and Technology.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%230891b2%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><circle cx=%2212%22 cy=%2212%22 r=%2210%22/><path d=%22m4.93 4.93 4.24 4.24%22/><path d=%22m14.83 9.17 4.24-4.24%22/><path d=%22m14.83 14.83 4.24 4.24%22/><path d=%22m9.17 14.83-4.24 4.24%22/><circle cx=%2212%22 cy=%2212%22 r=%224%22/></svg>">
+  <link rel="stylesheet" href="../styles.css">
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('farha_theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body class="case-study-page">
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="nav-brand">
+        <a href="../#home" class="brand-logo" aria-label="Farha Portfolio Home">
+          <span>FARHA</span>
+          <span class="brand-dot"></span>
+        </a>
+        <span class="intern-badge">Research Case Study</span>
+      </div>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="../#home" class="nav-link">Home</a></li>
+          <li><a href="../#about" class="nav-link">About</a></li>
+          <li><a href="../#skills" class="nav-link">Skills</a></li>
+          <li><a href="../#projects" class="nav-link active">Projects</a></li>
+          <li><a href="../#experience" class="nav-link">Experience</a></li>
+          <li><a href="../#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://github.com/FarhaAmeen12/CAV-Anomaly-Detection" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          GitHub Code
+        </a>
+
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Light and Dark Theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px; padding-bottom: 80px;">
+    <div class="container" style="max-width: 1000px;">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 24px; font-size: 0.9rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px;">
+        <a href="../#home" style="color: var(--primary); text-decoration: none;">Home</a>
+        <span>/</span>
+        <a href="../#projects" style="color: var(--primary); text-decoration: none;">Projects</a>
+        <span>/</span>
+        <span style="color: var(--text-main); font-weight: 500;">CAV Anomaly Detection</span>
+      </nav>
+
+      <!-- Case Study Header -->
+      <header style="margin-bottom: 40px;">
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+          <span style="background: rgba(8, 145, 178, 0.12); color: var(--primary); padding: 4px 12px; border-radius: 999px; font-size: 0.82rem; font-weight: 600; border: 1px solid rgba(8, 145, 178, 0.25);">Machine Learning</span>
+          <span style="background: rgba(139, 92, 246, 0.12); color: var(--accent-purple); padding: 4px 12px; border-radius: 999px; font-size: 0.82rem; font-weight: 600; border: 1px solid rgba(139, 92, 246, 0.25);">Network Security & V2X</span>
+          <span style="background: var(--bg-surface-elevated); color: var(--text-muted); padding: 4px 12px; border-radius: 999px; font-size: 0.82rem; font-weight: 500; border: 1px solid var(--border-subtle);">KPR IET Residency</span>
+        </div>
+
+        <h1 style="font-size: clamp(2rem, 4vw, 2.85rem); line-height: 1.2; margin-bottom: 16px; font-weight: 700;">
+          Connected & Autonomous Vehicles (CAV) Anomaly Detection Framework
+        </h1>
+
+        <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 850px; margin-bottom: 28px;">
+          An empirical machine learning framework benchmarking Isolation Forests, Random Forests, and Autoencoders to detect sensor spoofing and telemetry injection attacks across connected vehicular networks.
+        </p>
+
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="https://github.com/FarhaAmeen12/CAV-Anomaly-Detection" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            Research Repository
+          </a>
+          <a href="../#projects" class="btn btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            All Projects
+          </a>
+        </div>
+      </header>
+
+      <!-- Featured Image Banner -->
+      <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); margin-bottom: 48px; background: var(--bg-surface-elevated); box-shadow: var(--shadow-card);">
+        <img src="../assets/images/cav-research.jpg" alt="Connected & Autonomous Vehicles Anomaly Detection machine learning model visualization" style="width: 100%; height: auto; max-height: 480px; object-fit: cover; display: block;">
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 48px;">
+        <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">Research Institution</div>
+          <div style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">KPR IET (India)</div>
+        </div>
+        <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">Detection Accuracy</div>
+          <div style="font-weight: 600; color: var(--accent-emerald); font-size: 1.05rem;">96.4% on Attack Sets</div>
+        </div>
+        <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">Inference Latency</div>
+          <div style="font-weight: 600; color: var(--primary); font-size: 1.05rem;">&lt; 10 ms per packet</div>
+        </div>
+        <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">My Role</div>
+          <div style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Research Fellow</div>
+        </div>
+      </div>
+
+      <!-- Problem & Solution -->
+      <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-amber);"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <h2 style="font-size: 1.35rem; font-weight: 600;">The Problem</h2>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem;">
+            Connected and Autonomous Vehicles (CAVs) exchange continuous mission-critical telemetry over Vehicle-to-Everything (V2X) and Controller Area Network (CAN) communication buses. Adversaries can inject spoofed sensor telemetry (falsified velocity, distance, GPS coordinates) that bypasses static threshold filters, potentially tricking autonomous brake or steering algorithms into catastrophic failure.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-emerald);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <h2 style="font-size: 1.35rem; font-weight: 600;">The Solution</h2>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem;">
+            During my research residency at KPR Institute of Engineering and Technology (India), I developed a modular unsupervised and semi-supervised anomaly detection pipeline in Python. By benchmarking Isolation Forests, Random Forests, and deep Autoencoders on vehicular network datasets, the framework successfully identifies malicious sensor drift in real time with sub-10ms packet evaluation windows.
+          </p>
+        </div>
+      </section>
+
+      <!-- Key Features -->
+      <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 48px;">
+        <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 24px;">Key Research Contributions</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          <div style="padding: 16px; background: var(--bg-surface-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <h3 style="font-size: 1.05rem; font-weight: 600;">Multi-Model Benchmarking</h3>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Trained and compared three distinct mathematical architectures (Isolation Forest tree-depth scoring, supervised Random Forest classifiers, and reconstruction-loss Autoencoders) on automotive telematics.
+            </p>
+          </div>
+
+          <div style="padding: 16px; background: var(--bg-surface-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <h3 style="font-size: 1.05rem; font-weight: 600;">Sub-10ms Inference Time</h3>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Optimized Scikit-learn decision paths to evaluate streaming CAN bus telemetry frames within strict deadlines required by autonomous vehicle electronic control units (ECUs).
+            </p>
+          </div>
+
+          <div style="padding: 16px; background: var(--bg-surface-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <h3 style="font-size: 1.05rem; font-weight: 600;">Spoofing & Drift Discrimination</h3>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Engineered feature vectors correlating rate-of-change across accelerometer, speedometer, and wheel encoder signals to reliably identify artificial telemetry injection.
+            </p>
+          </div>
+
+          <div style="padding: 16px; background: var(--bg-surface-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              <h3 style="font-size: 1.05rem; font-weight: 600;">Empirical Performance Metrics</h3>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Generated ROC-AUC curves, confusion matrices, and precision-recall trade-offs to rigorously validate model confidence and minimize false positives.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technology Stack -->
+      <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 48px;">
+        <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 20px;">Technology & Research Tools</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            Python 3.11
+          </span>
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 6 12 12 16 14"></polygon></svg>
+            Scikit-Learn
+          </span>
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            Pandas & NumPy
+          </span>
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            Jupyter Notebooks
+          </span>
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            CAN Bus Telemetry
+          </span>
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            V2X Security Protocols
+          </span>
+        </div>
+      </section>
+
+      <!-- Navigation links -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 16px;">
+        <a href="./spendify" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Previous: Spendify
+        </a>
+        <a href="../#projects" class="btn btn-primary">
+          Back to Featured Projects
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content" style="text-align: center; padding: 32px 0;">
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        &copy; 2026 Farha. Professional Developer Portfolio & Research Case Studies.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../app.js"></script>
+</body>
+</html>

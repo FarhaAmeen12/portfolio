@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Farha Portfolio CMS</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%230891b2%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><rect x=%223%22 y=%223%22 width=%2218%22 height=%2218%22 rx=%222%22/><path d=%22M3 9h18%22/><path d=%22M9 21V9%22/></svg>">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* Admin Specific Styling */
+    .admin-layout {
+      display: flex;
+      min-height: 100vh;
+      background: var(--bg-body);
+    }
+    .admin-sidebar {
+      width: 260px;
+      background: var(--bg-surface);
+      border-right: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      z-index: 50;
+      transition: transform var(--transition-normal);
+    }
+    .admin-sidebar-header {
+      padding: 24px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .admin-nav {
+      flex: 1;
+      padding: 20px 12px;
+      overflow-y: auto;
+    }
+    .admin-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast);
+      border: 1px solid transparent;
+    }
+    .admin-nav-item:hover {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+    }
+    .admin-nav-item.active {
+      background: rgba(8, 145, 178, 0.12);
+      color: var(--primary);
+      border-color: rgba(8, 145, 178, 0.25);
+      font-weight: 600;
+    }
+    .admin-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow-y: auto;
+    }
+    .admin-topbar {
+      height: 70px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+    .admin-content {
+      padding: 32px;
+      flex: 1;
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .admin-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    .stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .data-table th {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .data-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.92rem;
+      vertical-align: middle;
+    }
+    .data-table tr:hover td {
+      background: var(--bg-surface-elevated);
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+    }
+    .badge-success {
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+    }
+    .badge-draft {
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--accent-amber);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 20px;
+    }
+    .modal-backdrop.show {
+      display: flex;
+    }
+    .modal-dialog {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 650px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      font-size: 0.92rem;
+      outline: none;
+      font-family: inherit;
+    }
+    .form-control:focus {
+      border-color: var(--primary);
+    }
+    @media (max-width: 900px) {
+      .admin-sidebar {
+        position: fixed;
+        left: -260px;
+      }
+      .admin-sidebar.open {
+        transform: translateX(260px);
+      }
+      .admin-content {
+        padding: 20px 16px;
+      }
+      .admin-topbar {
+        padding: 0 16px;
+      }
+    }
+  </style>
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('farha_theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar-header">
+        <a href="../#home" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text-main); font-weight: 700; font-size: 1.25rem;">
+          <span>FARHA</span>
+          <span style="width: 6px; height: 6px; background: var(--primary); border-radius: 50%;"></span>
+        </a>
+        <span style="font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); color: var(--text-muted);">CMS</span>
+      </div>
+
+      <nav class="admin-nav" id="admin-nav">
+        <div class="admin-nav-item active" data-tab="dashboard">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Dashboard
+        </div>
+        <div class="admin-nav-item" data-tab="projects">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          Projects
+        </div>
+        <div class="admin-nav-item" data-tab="skills">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          Skills / Tech Stack
+        </div>
+        <div class="admin-nav-item" data-tab="experience">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          Experience
+        </div>
+        <div class="admin-nav-item" data-tab="education">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          Education
+        </div>
+        <div class="admin-nav-item" data-tab="certifications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          Certifications
+        </div>
+        <div class="admin-nav-item" data-tab="messages">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>Messages</span>
+          <span id="unread-count-pill" class="badge badge-success" style="margin-left: auto; display: none;">0</span>
+        </div>
+        <div class="admin-nav-item" data-tab="settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Site Settings
+        </div>
+      </nav>
+
+      <div style="padding: 16px; border-top: 1px solid var(--border-subtle);">
+        <button id="admin-logout-btn" class="admin-nav-item" style="width: 100%; border: none; background: transparent; color: #ef4444;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <button id="admin-menu-toggle" class="btn btn-outline btn-sm" style="display: inline-flex;" aria-label="Toggle Navigation">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <h2 id="page-title" style="font-size: 1.25rem; font-weight: 700;">Dashboard Overview</h2>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <a href="../#home" target="_blank" class="btn btn-outline btn-sm" style="font-size: 0.85rem;">
+            <span>View Live Site</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+
+          <button class="theme-btn" id="theme-toggle" aria-label="Toggle Theme">
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="admin-content">
+
+        <!-- ================= TAB: DASHBOARD ================= -->
+        <section id="tab-dashboard" class="tab-pane">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 32px;">
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(8, 145, 178, 0.12); color: var(--primary);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+              </div>
+              <div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Total Projects</div>
+                <div id="stat-total-projects" style="font-size: 1.6rem; font-weight: 700;">-</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(34, 197, 94, 0.12); color: var(--accent-emerald);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Published</div>
+                <div id="stat-published-projects" style="font-size: 1.6rem; font-weight: 700;">-</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(139, 92, 246, 0.12); color: var(--accent-purple);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Skills Managed</div>
+                <div id="stat-skills-count" style="font-size: 1.6rem; font-weight: 700;">-</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(245, 158, 11, 0.12); color: var(--accent-amber);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path></svg>
+              </div>
+              <div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Unread Messages</div>
+                <div id="stat-unread-messages" style="font-size: 1.6rem; font-weight: 700;">-</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Inquiries Section -->
+          <div class="admin-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <h3 style="font-size: 1.15rem; font-weight: 600;">Recent Inquiries</h3>
+              <button class="btn btn-outline btn-sm" onclick="switchTab('messages')">View All Messages</button>
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Sender</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="recent-messages-tbody">
+                  <tr><td colspan="5" style="text-align: center; color: var(--text-muted);">Loading dashboard data...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB: PROJECTS ================= -->
+        <section id="tab-projects" class="tab-pane" style="display: none;">
+          <div class="admin-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 700;">Manage Projects</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Create, edit, or delete case studies and project records</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="openProjectModal()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add New Project
+              </button>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Slug</th>
+                    <th>Featured</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="projects-table-tbody">
+                  <tr><td colspan="5" style="text-align: center; color: var(--text-muted);">Loading projects...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB: SKILLS ================= -->
+        <section id="tab-skills" class="tab-pane" style="display: none;">
+          <div class="admin-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 700;">Manage Technical Skills</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Maintain categorized skills list (Frontend, Backend, Database, Cloud/DevOps)</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="openSkillModal()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add Skill
+              </button>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Order</th>
+                    <th>Visibility</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="skills-table-tbody">
+                  <tr><td colspan="5" style="text-align: center; color: var(--text-muted);">Loading skills...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB: EXPERIENCE ================= -->
+        <section id="tab-experience" class="tab-pane" style="display: none;">
+          <div class="admin-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 700;">Manage Experience Timeline</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Positions, research residencies, and developer experience</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="openExperienceModal()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add Position
+              </button>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Position</th>
+                    <th>Company / Institution</th>
+                    <th>Dates</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="experience-table-tbody">
+                  <tr><td colspan="4" style="text-align: center; color: var(--text-muted);">Loading experience...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB: EDUCATION ================= -->
+        <section id="tab-education" class="tab-pane" style="display: none;">
+          <div class="admin-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 700;">Manage Education</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Degrees, academic institutions, and coursework</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="openEducationModal()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add Education
+              </button>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Degree</th>
+                    <th>Institution</th>
+                    <th>Years</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="education-table-tbody">
+                  <tr><td colspan="4" style="text-align: center; color: var(--text-muted);">Loading education...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB: CERTIFICATIONS ================= -->
+        <section id="tab-certifications" class="tab-pane" style="display: none;">
+          <div class="admin-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 700;">Manage Certifications</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Verified credentials, academy certificates, and awards</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="openCertModal()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add Certification
+              </button>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Certification Name</th>
+                    <th>Issuing Organization</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="cert-table-tbody">
+                  <tr><td colspan="4" style="text-align: center; color: var(--text-muted);">Loading certifications...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB: MESSAGES ================= -->
+        <section id="tab-messages" class="tab-pane" style="display: none;">
+          <div class="admin-card">
+            <div style="margin-bottom: 24px;">
+              <h3 style="font-size: 1.25rem; font-weight: 700;">Contact Inquiries Inbox</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Incoming contact messages from recruiters and visitors</p>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Sender Name</th>
+                    <th>Email Address</th>
+                    <th>Subject</th>
+                    <th>Received</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="messages-table-tbody">
+                  <tr><td colspan="6" style="text-align: center; color: var(--text-muted);">Loading inquiries...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB: SETTINGS ================= -->
+        <section id="tab-settings" class="tab-pane" style="display: none;">
+          <div class="admin-card">
+            <div style="margin-bottom: 24px;">
+              <h3 style="font-size: 1.25rem; font-weight: 700;">Global Site Settings</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Manage profile content, hero copy, links, and SEO metadata</p>
+            </div>
+
+            <form id="settings-form">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div class="form-group">
+                  <label for="set-name">Full Name</label>
+                  <input type="text" id="set-name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="set-title">Professional Title</label>
+                  <input type="text" id="set-title" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="set-email">Contact Email</label>
+                  <input type="email" id="set-email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="set-location">Location</label>
+                  <input type="text" id="set-location" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <label for="set-github">GitHub Profile URL</label>
+                  <input type="url" id="set-github" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <label for="set-linkedin">LinkedIn Profile URL</label>
+                  <input type="url" id="set-linkedin" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 12px;">
+                <label for="set-hero">Hero Headline / Subtitle</label>
+                <textarea id="set-hero" class="form-control" rows="2"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="set-about">About Me Description</label>
+                <textarea id="set-about" class="form-control" rows="4"></textarea>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div class="form-group">
+                  <label for="set-seo-title">SEO Title Tag</label>
+                  <input type="text" id="set-seo-title" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="set-seo-desc">SEO Meta Description</label>
+                  <input type="text" id="set-seo-desc" class="form-control">
+                </div>
+              </div>
+
+              <div style="margin-top: 24px;">
+                <button type="submit" class="btn btn-primary" id="save-settings-btn">
+                  Save Changes
+                </button>
+                <span id="settings-save-alert" style="margin-left: 12px; font-size: 0.88rem; color: var(--accent-emerald); display: none;">Saved successfully!</span>
+              </div>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: PROJECT EDIT/CREATE ================= -->
+  <div class="modal-backdrop" id="project-modal">
+    <div class="modal-dialog">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 id="project-modal-title" style="font-size: 1.25rem; font-weight: 700;">Edit Project</h3>
+        <button class="btn btn-outline btn-sm" onclick="closeProjectModal()">&times;</button>
+      </div>
+      <form id="project-form">
+        <input type="hidden" id="pm-id">
+        <div class="form-group">
+          <label for="pm-title">Project Title *</label>
+          <input type="text" id="pm-title" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="pm-slug">Slug (URL Route) *</label>
+          <input type="text" id="pm-slug" class="form-control" required placeholder="e.g. saferide">
+        </div>
+        <div class="form-group">
+          <label for="pm-short">Short Summary *</label>
+          <textarea id="pm-short" class="form-control" rows="2" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="pm-problem">The Problem</label>
+          <textarea id="pm-problem" class="form-control" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="pm-solution">The Solution</label>
+          <textarea id="pm-solution" class="form-control" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="pm-role">My Role</label>
+          <input type="text" id="pm-role" class="form-control" placeholder="e.g. Lead Android Developer">
+        </div>
+        <div class="form-group">
+          <label for="pm-tech">Technologies (comma separated)</label>
+          <input type="text" id="pm-tech" class="form-control" placeholder="Kotlin, SQLite, Google Maps">
+        </div>
+        <div class="form-group">
+          <label for="pm-github">GitHub URL</label>
+          <input type="url" id="pm-github" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="pm-live">Live Demo / Case Study URL</label>
+          <input type="text" id="pm-live" class="form-control">
+        </div>
+        <div style="display: flex; gap: 20px; margin: 16px 0;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
+            <input type="checkbox" id="pm-published" checked>
+            <span>Published</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
+            <input type="checkbox" id="pm-featured">
+            <span>Featured Project</span>
+          </label>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+          <button type="button" class="btn btn-outline" onclick="closeProjectModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="pm-submit-btn">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: SKILL EDIT/CREATE ================= -->
+  <div class="modal-backdrop" id="skill-modal">
+    <div class="modal-dialog" style="max-width: 480px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 id="skill-modal-title" style="font-size: 1.25rem; font-weight: 700;">Add Skill</h3>
+        <button class="btn btn-outline btn-sm" onclick="closeSkillModal()">&times;</button>
+      </div>
+      <form id="skill-form">
+        <input type="hidden" id="sm-id">
+        <div class="form-group">
+          <label for="sm-name">Skill Name *</label>
+          <input type="text" id="sm-name" class="form-control" required placeholder="e.g. TypeScript">
+        </div>
+        <div class="form-group">
+          <label for="sm-cat">Category *</label>
+          <select id="sm-cat" class="form-control">
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Database">Database</option>
+            <option value="Tools & DevOps">Tools & DevOps</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="sm-order">Display Order</label>
+          <input type="number" id="sm-order" class="form-control" value="1">
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+          <button type="button" class="btn btn-outline" onclick="closeSkillModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Skill</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: VIEW MESSAGE ================= -->
+  <div class="modal-backdrop" id="message-modal">
+    <div class="modal-dialog">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 style="font-size: 1.25rem; font-weight: 700;">Contact Message</h3>
+        <button class="btn btn-outline btn-sm" onclick="closeMessageModal()">&times;</button>
+      </div>
+      <div style="margin-bottom: 16px;">
+        <div style="font-size: 0.85rem; color: var(--text-muted);">From</div>
+        <div id="vm-sender" style="font-weight: 600; font-size: 1.05rem;"></div>
+        <div id="vm-email" style="font-size: 0.9rem; color: var(--primary);"></div>
+      </div>
+      <div style="margin-bottom: 16px;">
+        <div style="font-size: 0.85rem; color: var(--text-muted);">Subject</div>
+        <div id="vm-subject" style="font-weight: 600;"></div>
+      </div>
+      <div style="margin-bottom: 24px; padding: 16px; background: var(--bg-surface-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); line-height: 1.7; white-space: pre-wrap;" id="vm-body">
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 12px;">
+        <button type="button" class="btn btn-outline" onclick="closeMessageModal()">Close</button>
+        <button type="button" class="btn btn-primary" id="vm-toggle-read-btn">Mark as Read</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Application Logic -->
+  <script>
+    // 1. Auth Guard
+    let adminToken = localStorage.getItem('farha_token') || '';
+    async function checkAuth() {
+      try {
+        const res = await fetch('/api/auth/me', {
+          headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
+        });
+        if (!res.ok) {
+          window.location.href = '/admin/login';
+          return false;
+        }
+        return true;
+      } catch (e) {
+        window.location.href = '/admin/login';
+        return false;
+      }
+    }
+
+    // Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.admin-nav-item').forEach(item => {
+        item.classList.toggle('active', item.getAttribute('data-tab') === tabId);
+      });
+      document.querySelectorAll('.tab-pane').forEach(pane => {
+        pane.style.display = pane.id === `tab-${tabId}` ? 'block' : 'none';
+      });
+      const titles = {
+        dashboard: 'Dashboard Overview',
+        projects: 'Project Management',
+        skills: 'Skills & Tech Stack',
+        experience: 'Experience Timeline',
+        education: 'Education Records',
+        certifications: 'Certifications & Credentials',
+        messages: 'Inquiries Inbox',
+        settings: 'Global Site Settings'
+      };
+      document.getElementById('page-title').textContent = titles[tabId] || 'Admin Dashboard';
+    }
+
+    document.querySelectorAll('.admin-nav-item[data-tab]').forEach(item => {
+      item.addEventListener('click', () => switchTab(item.getAttribute('data-tab')));
+    });
+
+    // Mobile Sidebar Toggle
+    const sidebar = document.getElementById('admin-sidebar');
+    const menuToggle = document.getElementById('admin-menu-toggle');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+    }
+
+    // Logout
+    document.getElementById('admin-logout-btn').addEventListener('click', async () => {
+      await fetch('/api/auth/logout', { method: 'POST' });
+      localStorage.removeItem('farha_token');
+      window.location.href = '/admin/login';
+    });
+
+    // Theme Toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('farha_theme', next);
+        updateThemeIcons();
+      });
+      function updateThemeIcons() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const sun = themeBtn.querySelector('.sun-icon');
+        const moon = themeBtn.querySelector('.moon-icon');
+        if (sun && moon) {
+          sun.style.display = isDark ? 'block' : 'none';
+          moon.style.display = isDark ? 'none' : 'block';
+        }
+      }
+      updateThemeIcons();
+    }
+
+    // 2. Fetch Dashboard & Data
+    async function loadDashboard() {
+      try {
+        const res = await fetch('/api/dashboard', {
+          headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
+        });
+        const data = await res.json();
+        if (data.success && data.stats) {
+          const s = data.stats;
+          document.getElementById('stat-total-projects').textContent = s.totalProjects;
+          document.getElementById('stat-published-projects').textContent = s.publishedProjects;
+          document.getElementById('stat-skills-count').textContent = s.totalSkills;
+          document.getElementById('stat-unread-messages').textContent = s.unreadMessages;
+
+          const pill = document.getElementById('unread-count-pill');
+          if (s.unreadMessages > 0) {
+            pill.style.display = 'inline-block';
+            pill.textContent = s.unreadMessages;
+          } else {
+            pill.style.display = 'none';
+          }
+
+          // Populate recent messages
+          const tbody = document.getElementById('recent-messages-tbody');
+          if (s.recentMessages && s.recentMessages.length > 0) {
+            tbody.innerHTML = s.recentMessages.map(m => `
+              <tr>
+                <td style="font-weight: 600;">${escapeHtml(m.name)}</td>
+                <td style="color: var(--text-muted);">${escapeHtml(m.email)}</td>
+                <td>${escapeHtml(m.subject)}</td>
+                <td style="font-size: 0.82rem; color: var(--text-muted);">${new Date(m.createdAt).toLocaleDateString()}</td>
+                <td><span class="badge ${m.isRead ? 'badge-success' : 'badge-draft'}">${m.isRead ? 'Read' : 'Unread'}</span></td>
+              </tr>
+            `).join('');
+          } else {
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-muted);">No messages yet.</td></tr>`;
+          }
+        }
+      } catch (e) {
+        console.error('Failed to load dashboard:', e);
+      }
+    }
+
+    // 3. Projects CRUD
+    let projectsList = [];
+    async function loadProjects() {
+      try {
+        const res = await fetch('/api/projects', {
+          headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
+        });
+        const data = await res.json();
+        if (data.success && data.projects) {
+          projectsList = data.projects;
+          const tbody = document.getElementById('projects-table-tbody');
+          tbody.innerHTML = projectsList.map(p => `
+            <tr>
+              <td style="font-weight: 600;">${escapeHtml(p.title)}</td>
+              <td style="font-family: var(--font-code); font-size: 0.85rem; color: var(--primary);">/projects/${escapeHtml(p.slug)}</td>
+              <td>${p.featured ? '<span class="badge badge-success">Featured</span>' : '<span style="color:var(--text-muted);">-</span>'}</td>
+              <td><span class="badge ${p.published ? 'badge-success' : 'badge-draft'}">${p.published ? 'Published' : 'Draft'}</span></td>
+              <td>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-outline btn-sm" onclick="editProject('${p.id}')">Edit</button>
+                  <button class="btn btn-outline btn-sm" style="color: #ef4444;" onclick="deleteProject('${p.id}', '${escapeHtml(p.title)}')">Delete</button>
+                </div>
+              </td>
+            </tr>
+          `).join('');
+        }
+      } catch (e) {
+        console.error('Failed to load projects:', e);
+      }
+    }
+
+    function openProjectModal(isEdit = false) {
+      document.getElementById('project-modal-title').textContent = isEdit ? 'Edit Project' : 'Create New Project';
+      document.getElementById('project-modal').classList.add('show');
+    }
+    function closeProjectModal() {
+      document.getElementById('project-modal').classList.remove('show');
+      document.getElementById('project-form').reset();
+      document.getElementById('pm-id').value = '';
+    }
+    function editProject(id) {
+      const p = projectsList.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('pm-id').value = p.id;
+      document.getElementById('pm-title').value = p.title || '';
+      document.getElementById('pm-slug').value = p.slug || '';
+      document.getElementById('pm-short').value = p.shortDescription || '';
+      document.getElementById('pm-problem').value = p.problem || '';
+      document.getElementById('pm-solution').value = p.solution || '';
+      document.getElementById('pm-role').value = p.role || '';
+      document.getElementById('pm-tech').value = p.technologies || '';
+      document.getElementById('pm-github').value = p.githubUrl || '';
+      document.getElementById('pm-live').value = p.liveUrl || '';
+      document.getElementById('pm-published').checked = p.published !== false;
+      document.getElementById('pm-featured').checked = Boolean(p.featured);
+      openProjectModal(true);
+    }
+    async function deleteProject(id, title) {
+      if (!confirm(`Are you sure you want to permanently delete project "${title}"?`)) return;
+      try {
+        const res = await fetch(`/api/projects?id=${id}`, {
+          method: 'DELETE',
+          headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
+        });
+        if (res.ok) {
+          loadProjects();
+          loadDashboard();
+        }
+      } catch (e) {
+        alert('Failed to delete project');
+      }
+    }
+    document.getElementById('project-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('pm-id').value;
+      const payload = {
+        title: document.getElementById('pm-title').value,
+        slug: document.getElementById('pm-slug').value,
+        shortDescription: document.getElementById('pm-short').value,
+        problem: document.getElementById('pm-problem').value,
+        solution: document.getElementById('pm-solution').value,
+        role: document.getElementById('pm-role').value,
+        technologies: document.getElementById('pm-tech').value,
+        githubUrl: document.getElementById('pm-github').value,
+        liveUrl: document.getElementById('pm-live').value,
+        published: document.getElementById('pm-published').checked,
+        featured: document.getElementById('pm-featured').checked
+      };
+      const method = id ? 'PUT' : 'POST';
+      if (id) payload.id = id;
+
+      const res = await fetch('/api/projects', {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+          ...(adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {})
+        },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        closeProjectModal();
+        loadProjects();
+        loadDashboard();
+      } else {
+        alert('Failed to save project');
+      }
+    });
+
+    // 4. Skills CRUD
+    let skillsList = [];
+    async function loadSkills() {
+      try {
+        const res = await fetch('/api/skills');
+        const data = await res.json();
+        if (data.success && data.skills) {
+          skillsList = data.skills;
+          const tbody = document.getElementById('skills-table-tbody');
+          tbody.innerHTML = skillsList.map(s => `
+            <tr>
+              <td style="font-weight: 600;">${escapeHtml(s.name)}</td>
+              <td><span class="badge" style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle);">${escapeHtml(s.category)}</span></td>
+              <td>${s.displayOrder || 0}</td>
+              <td><span class="badge ${s.visible ? 'badge-success' : 'badge-draft'}">${s.visible ? 'Visible' : 'Hidden'}</span></td>
+              <td>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-outline btn-sm" onclick="editSkill('${s.id}')">Edit</button>
+                  <button class="btn btn-outline btn-sm" style="color: #ef4444;" onclick="deleteSkill('${s.id}')">Delete</button>
+                </div>
+              </td>
+            </tr>
+          `).join('');
+        }
+      } catch (e) {
+        console.error('Failed to load skills:', e);
+      }
+    }
+    function openSkillModal() {
+      document.getElementById('skill-modal').classList.add('show');
+    }
+    function closeSkillModal() {
+      document.getElementById('skill-modal').classList.remove('show');
+      document.getElementById('skill-form').reset();
+      document.getElementById('sm-id').value = '';
+    }
+    function editSkill(id) {
+      const s = skillsList.find(x => x.id === id);
+      if (!s) return;
+      document.getElementById('sm-id').value = s.id;
+      document.getElementById('sm-name').value = s.name;
+      document.getElementById('sm-cat').value = s.category;
+      document.getElementById('sm-order').value = s.displayOrder || 1;
+      openSkillModal();
+    }
+    async function deleteSkill(id) {
+      if (!confirm('Delete this skill?')) return;
+      await fetch(`/api/skills?id=${id}`, {
+        method: 'DELETE',
+        headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
+      });
+      loadSkills();
+    }
+    document.getElementById('skill-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('sm-id').value;
+      const payload = {
+        name: document.getElementById('sm-name').value,
+        category: document.getElementById('sm-cat').value,
+        displayOrder: Number(document.getElementById('sm-order').value) || 1
+      };
+      if (id) payload.id = id;
+      await fetch('/api/skills', {
+        method: id ? 'PUT' : 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {})
+        },
+        body: JSON.stringify(payload)
+      });
+      closeSkillModal();
+      loadSkills();
+      loadDashboard();
+    });
+
+    // 5. Messages Inbox
+    let messagesList = [];
+    async function loadMessages() {
+      try {
+        const res = await fetch('/api/messages', {
+          headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
+        });
+        const data = await res.json();
+        if (data.success && data.messages) {
+          messagesList = data.messages;
+          const tbody = document.getElementById('messages-table-tbody');
+          if (messagesList.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No messages found.</td></tr>`;
+            return;
+          }
+          tbody.innerHTML = messagesList.map(m => `
+            <tr>
+              <td style="font-weight: 600;">${escapeHtml(m.name)}</td>
+              <td style="color: var(--text-muted);">${escapeHtml(m.email)}</td>
+              <td>${escapeHtml(m.subject)}</td>
+              <td style="font-size: 0.82rem; color: var(--text-muted);">${new Date(m.createdAt).toLocaleDateString()}</td>
+              <td><span class="badge ${m.isRead ? 'badge-success' : 'badge-draft'}">${m.isRead ? 'Read' : 'Unread'}</span></td>
+              <td>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-outline btn-sm" onclick="viewMessage('${m.id}')">View</button>
+                  <button class="btn btn-outline btn-sm" style="color: #ef4444;" onclick="deleteMessage('${m.id}')">Delete</button>
+                </div>
+              </td>
+            </tr>
+          `).join('');
+        }
+      } catch (e) {
+        console.error('Failed to load messages:', e);
+      }
+    }
+    let currentViewingMessage = null;
+    function viewMessage(id) {
+      const m = messagesList.find(x => x.id === id);
+      if (!m) return;
+      currentViewingMessage = m;
+      document.getElementById('vm-sender').textContent = m.name;
+      document.getElementById('vm-email').textContent = m.email;
+      document.getElementById('vm-subject').textContent = m.subject;
+      document.getElementById('vm-body').textContent = m.message;
+      const toggleBtn = document.getElementById('vm-toggle-read-btn');
+      toggleBtn.textContent = m.isRead ? 'Mark as Unread' : 'Mark as Read';
+      document.getElementById('message-modal').classList.add('show');
+
+      // Auto mark read if unread
+      if (!m.isRead) {
+        toggleMessageStatus(m.id, true);
+      }
+    }
+    function closeMessageModal() {
+      document.getElementById('message-modal').classList.remove('show');
+    }
+    async function toggleMessageStatus(id, newStatus) {
+      await fetch('/api/messages', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {})
+        },
+        body: JSON.stringify({ id, isRead: newStatus })
+      });
+      loadMessages();
+      loadDashboard();
+    }
+    document.getElementById('vm-toggle-read-btn').addEventListener('click', async () => {
+      if (!currentViewingMessage) return;
+      await toggleMessageStatus(currentViewingMessage.id, !currentViewingMessage.isRead);
+      closeMessageModal();
+    });
+    async function deleteMessage(id) {
+      if (!confirm('Delete this contact message permanently?')) return;
+      await fetch(`/api/messages?id=${id}`, {
+        method: 'DELETE',
+        headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
+      });
+      loadMessages();
+      loadDashboard();
+    }
+
+    // 6. Site Settings
+    async function loadSettings() {
+      try {
+        const res = await fetch('/api/settings');
+        const data = await res.json();
+        if (data.success && data.settings) {
+          const s = data.settings;
+          document.getElementById('set-name').value = s.name || '';
+          document.getElementById('set-title').value = s.title || '';
+          document.getElementById('set-email').value = s.email || '';
+          document.getElementById('set-location').value = s.location || '';
+          document.getElementById('set-github').value = s.github_url || '';
+          document.getElementById('set-linkedin').value = s.linkedin_url || '';
+          document.getElementById('set-hero').value = s.hero_headline || '';
+          document.getElementById('set-about').value = s.about_text || '';
+          document.getElementById('set-seo-title').value = s.seo_title || '';
+          document.getElementById('set-seo-desc').value = s.seo_description || '';
+        }
+      } catch (e) {
+        console.error('Failed to load settings:', e);
+      }
+    }
+    document.getElementById('settings-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const payload = {
+        name: document.getElementById('set-name').value,
+        title: document.getElementById('set-title').value,
+        email: document.getElementById('set-email').value,
+        location: document.getElementById('set-location').value,
+        github_url: document.getElementById('set-github').value,
+        linkedin_url: document.getElementById('set-linkedin').value,
+        hero_headline: document.getElementById('set-hero').value,
+        about_text: document.getElementById('set-about').value,
+        seo_title: document.getElementById('set-seo-title').value,
+        seo_description: document.getElementById('set-seo-desc').value
+      };
+      const res = await fetch('/api/settings', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {})
+        },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        const alertMsg = document.getElementById('settings-save-alert');
+        alertMsg.style.display = 'inline-block';
+        setTimeout(() => { alertMsg.style.display = 'none'; }, 3000);
+      }
+    });
+
+    // Helper HTML escaper
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Initialize CMS
+    (async () => {
+      const isAuthed = await checkAuth();
+      if (isAuthed) {
+        loadDashboard();
+        loadProjects();
+        loadSkills();
+        loadMessages();
+        loadSettings();
+      }
+    })();
+  </script>
+</body>
+</html>

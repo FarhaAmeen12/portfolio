@@ -8,49 +8,49 @@
 
 /* --- Root Color Tokens & High Contrast Themes --- */
 :root {
-  /* User-Specified Palette & Brand Accents */
-  --primary: #06B6D4;             /* Primary accent: Cyan */
-  --primary-rgb: 6, 182, 212;
-  --primary-hover: #22D3EE;       /* Accent hover: Bright Cyan */
-  --secondary: #38bdf8;
-  --accent-cyan: #06B6D4;
-  --accent-emerald: #22C55E;      /* Success/status: Green */
-  --accent-amber: #F59E0B;        /* Warning: Amber */
-  --accent-purple: #8B5CF6;
-  --accent-rose: #f43f5e;
+  /* Clean Professional Accents */
+  --primary: #0891b2;             /* Professional Cyan / Deep Teal */
+  --primary-rgb: 8, 145, 178;
+  --primary-hover: #0284c7;       /* Accent hover */
+  --secondary: #0284c7;
+  --accent-cyan: #0891b2;
+  --accent-emerald: #16a34a;      /* Success/status: Green */
+  --accent-amber: #d97706;        /* Warning: Amber */
+  --accent-purple: #7c3aed;
+  --accent-rose: #e11d48;
 
-  /* User-Specified Theme Backgrounds & Surfaces */
-  --bg-body: #0B1120;             /* Main background: Midnight Navy */
-  --bg-surface: #111827;          /* Secondary background: Dark Blue */
-  --bg-surface-elevated: #1E293B; /* Cards: Slate Navy */
-  --bg-surface-hover: #273549;
-  --bg-glass: rgba(17, 24, 39, 0.90);
-  --bg-glass-card: rgba(30, 41, 59, 0.88);
-  --border-subtle: rgba(148, 163, 184, 0.16);
-  --border-accent: rgba(6, 182, 212, 0.45);
-  --border-focus: #06B6D4;
+  /* Surfaces & Backgrounds - Clean Light Mode Default */
+  --bg-body: #f8fafc;             /* Main light background */
+  --bg-surface: #ffffff;          /* Pure white card surface */
+  --bg-surface-elevated: #f1f5f9; /* Soft elevated card */
+  --bg-surface-hover: #e2e8f0;
+  --bg-glass: rgba(255, 255, 255, 0.94);
+  --bg-glass-card: rgba(255, 255, 255, 0.98);
+  --border-subtle: rgba(15, 23, 42, 0.12);
+  --border-accent: rgba(8, 145, 178, 0.5);
+  --border-focus: #0891b2;
 
-  /* User-Specified Typography */
-  --text-main: #F8FAFC;           /* Primary text: White */
-  --text-muted: #94A3B8;          /* Secondary text: Cool Gray */
-  --text-dim: #64748B;
-  --text-inverse: #0B1120;
+  /* Typography - Dark Charcoal */
+  --text-main: #090d16;           /* Primary text: Deep charcoal */
+  --text-muted: #334155;          /* Secondary text: Cool Slate */
+  --text-dim: #64748b;
+  --text-inverse: #ffffff;
 
   /* Glows & Shadows */
-  --glow-primary: 0 0 35px rgba(6, 182, 212, 0.35);
-  --glow-hover: 0 0 35px rgba(34, 211, 238, 0.45);
-  --glow-emerald: 0 0 30px rgba(34, 197, 94, 0.35);
-  --shadow-card: 0 16px 40px -10px rgba(0, 0, 0, 0.65);
-  --shadow-hover: 0 24px 50px -12px rgba(6, 182, 212, 0.28);
+  --glow-primary: 0 0 35px rgba(8, 145, 178, 0.18);
+  --glow-hover: 0 0 35px rgba(8, 145, 178, 0.28);
+  --glow-emerald: 0 0 30px rgba(22, 163, 74, 0.2);
+  --shadow-card: 0 10px 30px -8px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 18px 42px -10px rgba(8, 145, 178, 0.22);
 
   /* Gradients */
-  --grad-hero: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%);
-  --grad-emerald: linear-gradient(135deg, #22C55E 0%, #06B6D4 100%);
-  --grad-amber: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-  --grad-purple: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
-  --grad-dark-card: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-  --grad-mesh: radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
-               radial-gradient(circle at 85% 75%, rgba(30, 41, 59, 0.4) 0%, transparent 50%);
+  --grad-hero: linear-gradient(135deg, #0891b2 0%, #0284c7 100%);
+  --grad-emerald: linear-gradient(135deg, #16a34a 0%, #0891b2 100%);
+  --grad-amber: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  --grad-purple: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+  --grad-dark-card: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --grad-mesh: radial-gradient(circle at 10% 20%, rgba(8, 145, 178, 0.08) 0%, transparent 45%),
+               radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.06) 0%, transparent 50%);
 
   /* UI Metrics */
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -71,30 +71,43 @@
   --max-width: 1240px;
 }
 
-/* High Contrast Light Theme */
-[data-theme="light"] {
-  --bg-body: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-surface-elevated: #f1f5f9;
-  --bg-surface-hover: #e2e8f0;
-  --bg-glass: rgba(255, 255, 255, 0.92);
-  --bg-glass-card: rgba(255, 255, 255, 0.96);
-  --border-subtle: rgba(15, 23, 42, 0.14);
-  --border-accent: rgba(8, 145, 178, 0.6);
-  --border-focus: #0891b2;
+/* Optional Dark Theme */
+[data-theme="dark"] {
+  --primary: #06B6D4;
+  --primary-rgb: 6, 182, 212;
+  --primary-hover: #22D3EE;
+  --secondary: #38bdf8;
+  --accent-cyan: #06B6D4;
+  --accent-emerald: #22C55E;
+  --accent-amber: #F59E0B;
+  --accent-purple: #8B5CF6;
+  --accent-rose: #f43f5e;
 
-  --text-main: #090d16;
-  --text-muted: #334155;
-  --text-dim: #475569;
-  --text-inverse: #ffffff;
+  --bg-body: #0B1120;
+  --bg-surface: #111827;
+  --bg-surface-elevated: #1E293B;
+  --bg-surface-hover: #273549;
+  --bg-glass: rgba(17, 24, 39, 0.90);
+  --bg-glass-card: rgba(30, 41, 59, 0.88);
+  --border-subtle: rgba(148, 163, 184, 0.16);
+  --border-accent: rgba(6, 182, 212, 0.45);
+  --border-focus: #06B6D4;
 
-  --glow-primary: 0 0 35px rgba(8, 145, 178, 0.22);
-  --shadow-card: 0 14px 35px -8px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 20px 45px -10px rgba(8, 145, 178, 0.3);
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+  --text-inverse: #0B1120;
 
-  --grad-dark-card: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  --grad-mesh: radial-gradient(circle at 10% 20%, rgba(8, 145, 178, 0.1) 0%, transparent 45%),
-               radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+  --glow-primary: 0 0 35px rgba(6, 182, 212, 0.35);
+  --glow-hover: 0 0 35px rgba(34, 211, 238, 0.45);
+  --glow-emerald: 0 0 30px rgba(34, 197, 94, 0.35);
+  --shadow-card: 0 16px 40px -10px rgba(0, 0, 0, 0.65);
+  --shadow-hover: 0 24px 50px -12px rgba(6, 182, 212, 0.28);
+
+  --grad-hero: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%);
+  --grad-dark-card: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  --grad-mesh: radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+               radial-gradient(circle at 85% 75%, rgba(30, 41, 59, 0.4) 0%, transparent 50%);
 }
 
 /* --- Global Reset & Accessibility --- */

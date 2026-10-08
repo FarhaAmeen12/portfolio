@@ -98,12 +98,12 @@ function initTheme() {
   const sunIcon = toggleBtn ? toggleBtn.querySelector('.sun-icon') : null;
   const moonIcon = toggleBtn ? toggleBtn.querySelector('.moon-icon') : null;
 
-  const savedTheme = localStorage.getItem('farha_theme') || 'dark';
+  const savedTheme = localStorage.getItem('farha_theme') || 'light';
   applyTheme(savedTheme);
 
   if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
       const nextTheme = current === 'dark' ? 'light' : 'dark';
       applyTheme(nextTheme);
       localStorage.setItem('farha_theme', nextTheme);
@@ -610,30 +610,57 @@ window.openProjectModal = function(projectId) {
 /* ===================================================================
    9. INTERACTIVE CONTACT FORM & TOAST SYSTEM
    =================================================================== */
-window.handleContactSubmit = function(e) {
+window.handleContactSubmit = async function(e) {
   e.preventDefault();
 
-  const name = document.getElementById('contact-name').value.trim();
-  const email = document.getElementById('contact-email').value.trim();
-  const subject = document.getElementById('contact-subject').value.trim();
-  const message = document.getElementById('contact-message').value.trim();
+  const nameInput = document.getElementById('contact-name');
+  const emailInput = document.getElementById('contact-email');
+  const subjectInput = document.getElementById('contact-subject');
+  const messageInput = document.getElementById('contact-message');
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const subject = subjectInput.value.trim();
+  const message = messageInput.value.trim();
 
   if (!name || !email || !message) {
     showToast('Please fill in all required fields.');
     return;
   }
 
-  // Pre-fill mailto link to open recruiter's default mail client directly
-  const mailtoBody = encodeURIComponent(
-    `Hello Farha,\n\n${message}\n\nFrom: ${name} (${email})`
-  );
-  const mailtoSubject = encodeURIComponent(`[Internship Inquiry] ${subject} - ${name}`);
-  const mailtoUrl = `mailto:fathimafarhabinthameen1010@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+  const originalBtnHtml = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = `<span>Sending Message...</span>`;
 
-  window.open(mailtoUrl, '_blank');
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, subject, message })
+    });
 
-  showToast('Opening your email client to reach Farha! Form drafted successfully.');
-  document.getElementById('contact-form').reset();
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      showToast('Thank you! Your message has been sent successfully.');
+      document.getElementById('contact-form').reset();
+    } else {
+      showToast(data.error || 'Could not send message. Please try again.');
+    }
+  } catch (err) {
+    console.warn('API submission failed, falling back to client mailto:', err);
+    // Fallback: Open mail client if serverless is unreachable
+    const mailtoBody = encodeURIComponent(
+      `Hello Farha,\n\n${message}\n\nFrom: ${name} (${email})`
+    );
+    const mailtoSubject = encodeURIComponent(`[Portfolio Contact] ${subject} - ${name}`);
+    window.open(`mailto:fathimafarhabinthameen1010@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`, '_blank');
+    showToast('Message client opened! Please send your email.');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalBtnHtml;
+  }
 };
 
 window.copyToClipboard = function(text, successMsg) {

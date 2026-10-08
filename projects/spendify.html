@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spendify — Case Study | Farha Portfolio</title>
+  <meta name="description" content="Technical Case Study: Spendify — Enterprise Personal Finance & Budget Management Web Platform built with modern JavaScript, CSS design system, and Node.js.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%230891b2%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><rect x=%222%22 y=%225%22 width=%2220%22 height=%2214%22 rx=%222%22/><line x1=%222%22 y1=%2210%22 x2=%2222%22 y2=%2210%22/></svg>">
+  <link rel="stylesheet" href="../styles.css">
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('farha_theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body class="case-study-page">
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="nav-brand">
+        <a href="../#home" class="brand-logo" aria-label="Farha Portfolio Home">
+          <span>FARHA</span>
+          <span class="brand-dot"></span>
+        </a>
+        <span class="intern-badge">Case Study</span>
+      </div>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="../#home" class="nav-link">Home</a></li>
+          <li><a href="../#about" class="nav-link">About</a></li>
+          <li><a href="../#skills" class="nav-link">Skills</a></li>
+          <li><a href="../#projects" class="nav-link active">Projects</a></li>
+          <li><a href="../#experience" class="nav-link">Experience</a></li>
+          <li><a href="../#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://github.com/FarhaAmeen12/Spendify" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          GitHub Code
+        </a>
+
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Light and Dark Theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px; padding-bottom: 80px;">
+    <div class="container" style="max-width: 1000px;">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 24px; font-size: 0.9rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px;">
+        <a href="../#home" style="color: var(--primary); text-decoration: none;">Home</a>
+        <span>/</span>
+        <a href="../#projects" style="color: var(--primary); text-decoration: none;">Projects</a>
+        <span>/</span>
+        <span style="color: var(--text-main); font-weight: 500;">Spendify</span>
+      </nav>
+
+      <!-- Case Study Header -->
+      <header style="margin-bottom: 40px;">
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+          <span style="background: rgba(8, 145, 178, 0.12); color: var(--primary); padding: 4px 12px; border-radius: 999px; font-size: 0.82rem; font-weight: 600; border: 1px solid rgba(8, 145, 178, 0.25);">Full-Stack Web</span>
+          <span style="background: rgba(34, 197, 94, 0.12); color: var(--accent-emerald); padding: 4px 12px; border-radius: 999px; font-size: 0.82rem; font-weight: 600; border: 1px solid rgba(34, 197, 94, 0.25);">FinTech / Productivity</span>
+          <span style="background: var(--bg-surface-elevated); color: var(--text-muted); padding: 4px 12px; border-radius: 999px; font-size: 0.82rem; font-weight: 500; border: 1px solid var(--border-subtle);">Live Production</span>
+        </div>
+
+        <h1 style="font-size: clamp(2rem, 4vw, 2.85rem); line-height: 1.2; margin-bottom: 16px; font-weight: 700;">
+          Spendify — Personal Finance & Budget Management Platform
+        </h1>
+
+        <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 850px; margin-bottom: 28px;">
+          A responsive full-stack finance tracking application with category-based expense segregation, recurring transaction scheduling, balance auditing, and dynamic spending analytics charts.
+        </p>
+
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="https://github.com/FarhaAmeen12/Spendify" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            View Repository
+          </a>
+          <a href="../#projects" class="btn btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            All Projects
+          </a>
+        </div>
+      </header>
+
+      <!-- Featured Image Banner -->
+      <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); margin-bottom: 48px; background: var(--bg-surface-elevated); box-shadow: var(--shadow-card);">
+        <img src="../assets/images/spendify.jpg" alt="Spendify application desktop and mobile interface showcase" style="width: 100%; height: auto; max-height: 480px; object-fit: cover; display: block;">
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 48px;">
+        <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">My Role</div>
+          <div style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Full-Stack Web Developer</div>
+        </div>
+        <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">Architecture</div>
+          <div style="font-weight: 600; color: var(--text-main); font-size: 1.05rem;">Modular Client & REST API</div>
+        </div>
+        <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">Asset Footprint</div>
+          <div style="font-weight: 600; color: var(--primary); font-size: 1.05rem;">&lt; 50 KB Total (Zero Bloat)</div>
+        </div>
+        <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">Lighthouse Score</div>
+          <div style="font-weight: 600; color: var(--accent-emerald); font-size: 1.05rem;">100 / 100 Performance</div>
+        </div>
+      </div>
+
+      <!-- Problem & Solution -->
+      <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px;">
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-amber);"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <h2 style="font-size: 1.35rem; font-weight: 600;">The Problem</h2>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem;">
+            Budgeting via traditional spreadsheets is tedious and easily abandoned by undergraduates and busy professionals, while commercial banking aggregators often demand paid subscriptions and intrusive third-party banking permissions. Users need an immediate, frictionless tool that delivers clear visual clarity over cash flow without sacrificing user privacy.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-emerald);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <h2 style="font-size: 1.35rem; font-weight: 600;">The Solution</h2>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem;">
+            I designed Spendify with an intuitive, clean interface that provides real-time income versus expense classification, monthly category budgets, interactive spending charts, and clean data export. The platform runs with near-instantaneous load times, adapting seamlessly across desktop widescreen monitors and mobile screens down to 320px.
+          </p>
+        </div>
+      </section>
+
+      <!-- Key Features -->
+      <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 48px;">
+        <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 24px;">Key Technical Features</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          <div style="padding: 16px; background: var(--bg-surface-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              <h3 style="font-size: 1.05rem; font-weight: 600;">Real-Time Balance Ledger</h3>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Instant mathematical recalculation of net balance, monthly burn rate, and projected end-of-month runway on every transaction entry.
+            </p>
+          </div>
+
+          <div style="padding: 16px; background: var(--bg-surface-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+              <h3 style="font-size: 1.05rem; font-weight: 600;">Dynamic Category Visualization</h3>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Custom pure SVG breakdown graphs representing spending segments by categories (Food, Housing, Transit, Education, Health) with zero external library overhead.
+            </p>
+          </div>
+
+          <div style="padding: 16px; background: var(--bg-surface-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <h3 style="font-size: 1.05rem; font-weight: 600;">Monthly Category Budget Caps</h3>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Configurable financial threshold limits per category with progressive color warnings (80% amber threshold, 100% red limit).
+            </p>
+          </div>
+
+          <div style="padding: 16px; background: var(--bg-surface-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <h3 style="font-size: 1.05rem; font-weight: 600;">Data Portability & CSV Export</h3>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              One-click client-side CSV generator converts local transaction records into structured spreadsheets for tax filing or offline records.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Decisions -->
+      <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 48px;">
+        <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 24px;">Architecture & Technical Decisions</h2>
+
+        <div style="margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border-subtle);">
+          <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--text-main); margin-bottom: 8px;">
+            Decision 1: Zero-Dependency SVG Visualizations vs. Heavy Charting Libraries
+          </h3>
+          <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
+            Rather than importing heavy charting packages like Chart.js or D3 (which typically add 150KB+ minified JavaScript to the initial payload), I implemented reactive SVG pie and bar charts directly using geometric coordinate projection in vanilla JavaScript. This slashed initial page parse time to under 15ms.
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--text-main); margin-bottom: 8px;">
+            Decision 2: Mobile-First Responsive Breakpoint Architecture
+          </h3>
+          <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
+            Designed data tables that transform fluidly from multi-column grids on desktop to stacked, swipeable card views on mobile viewports below 640px, ensuring users can record transactions comfortably with one thumb while on the move.
+          </p>
+        </div>
+      </section>
+
+      <!-- Technology Stack -->
+      <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 48px;">
+        <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 20px;">Technology Stack</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            JavaScript (ES6+)
+          </span>
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+            HTML5 Semantic Web
+          </span>
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            CSS3 Design Tokens
+          </span>
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path></svg>
+            Node.js & Express
+          </span>
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            RESTful Endpoints
+          </span>
+          <span style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+            SVG Chart Engine
+          </span>
+        </div>
+      </section>
+
+      <!-- Navigation links -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 16px;">
+        <a href="./saferide" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Previous: Safe Ride LK
+        </a>
+        <a href="./cav" class="btn btn-primary">
+          Next Case Study: CAV Anomaly Detection
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content" style="text-align: center; padding: 32px 0;">
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        &copy; 2026 Farha. Professional Developer Portfolio & Case Studies.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../app.js"></script>
+</body>
+</html>

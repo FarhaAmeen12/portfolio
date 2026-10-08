@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects & Technical Case Studies | Farha Portfolio</title>
+  <meta name="description" content="Explore real-world software engineering, mobile systems, and network security projects built by Farha.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%230891b2%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%2216 18 22 12 16 6%22/><polyline points=%228 6 2 12 8 18%22/></svg>">
+  <link rel="stylesheet" href="../styles.css">
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('farha_theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="nav-brand">
+        <a href="../#home" class="brand-logo" aria-label="Farha Portfolio Home">
+          <span>FARHA</span>
+          <span class="brand-dot"></span>
+        </a>
+        <span class="intern-badge">Projects & Case Studies</span>
+      </div>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="../#home" class="nav-link">Home</a></li>
+          <li><a href="../#about" class="nav-link">About</a></li>
+          <li><a href="../#skills" class="nav-link">Skills</a></li>
+          <li><a href="../#projects" class="nav-link active">Projects</a></li>
+          <li><a href="../#experience" class="nav-link">Experience</a></li>
+          <li><a href="../#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle Light and Dark Theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: 110px; padding-bottom: 80px;">
+    <div class="container" style="max-width: 1100px;">
+      <header style="margin-bottom: 48px; text-align: center;">
+        <span style="background: rgba(8, 145, 178, 0.12); color: var(--primary); padding: 4px 14px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-bottom: 12px; border: 1px solid rgba(8, 145, 178, 0.25);">Featured Technical Portfolio</span>
+        <h1 style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; margin-bottom: 16px;">
+          Engineering Projects & Case Studies
+        </h1>
+        <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 1.05rem; line-height: 1.6;">
+          Real systems built with clean code, robust data models, and verified production performance.
+        </p>
+      </header>
+
+      <!-- Projects Grid -->
+      <div id="projects-grid-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+        <!-- Safe Ride LK -->
+        <article class="project-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; transition: transform var(--transition-normal), box-shadow var(--transition-normal);">
+          <div style="height: 220px; overflow: hidden; position: relative;">
+            <img src="../assets/images/saferide.jpg" alt="Safe Ride LK" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase; margin-bottom: 8px;">Native Android • Public Safety</span>
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 12px;">Safe Ride LK</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;">
+              Smart Women & Child Safety mobility system with shake-to-SOS sensor triggers, GPS geofencing, and automated zero-data SMS dispatch.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+              <span style="font-size: 0.78rem; background: var(--bg-surface-elevated); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);">Kotlin</span>
+              <span style="font-size: 0.78rem; background: var(--bg-surface-elevated); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);">SQLite</span>
+              <span style="font-size: 0.78rem; background: var(--bg-surface-elevated); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);">Google Maps</span>
+            </div>
+            <div style="display: flex; gap: 12px;">
+              <a href="./saferide" class="btn btn-primary btn-sm" style="flex: 1; text-align: center; justify-content: center;">Read Case Study</a>
+              <a href="https://github.com/FarhaAmeen12/SafeRideLK" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" aria-label="Safe Ride LK GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Spendify -->
+        <article class="project-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; transition: transform var(--transition-normal), box-shadow var(--transition-normal);">
+          <div style="height: 220px; overflow: hidden; position: relative;">
+            <img src="../assets/images/spendify.jpg" alt="Spendify" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase; margin-bottom: 8px;">Full-Stack Web • FinTech</span>
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 12px;">Spendify</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;">
+              Personal finance management platform with real-time balance calculations, category budgeting, and dynamic SVG expense visualizer.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+              <span style="font-size: 0.78rem; background: var(--bg-surface-elevated); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);">JavaScript</span>
+              <span style="font-size: 0.78rem; background: var(--bg-surface-elevated); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);">Node.js</span>
+              <span style="font-size: 0.78rem; background: var(--bg-surface-elevated); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);">CSS3</span>
+            </div>
+            <div style="display: flex; gap: 12px;">
+              <a href="./spendify" class="btn btn-primary btn-sm" style="flex: 1; text-align: center; justify-content: center;">Read Case Study</a>
+              <a href="https://github.com/FarhaAmeen12/Spendify" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" aria-label="Spendify GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CAV Anomaly Detection -->
+        <article class="project-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; transition: transform var(--transition-normal), box-shadow var(--transition-normal);">
+          <div style="height: 220px; overflow: hidden; position: relative;">
+            <img src="../assets/images/cav-research.jpg" alt="CAV Anomaly Detection" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase; margin-bottom: 8px;">Machine Learning • Network Security</span>
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 12px;">CAV Anomaly Detection</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;">
+              Benchmarking Isolation Forests and Autoencoders to intercept sensor spoofing and telemetry injection in autonomous vehicles (KPR IET Residency).
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+              <span style="font-size: 0.78rem; background: var(--bg-surface-elevated); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);">Python</span>
+              <span style="font-size: 0.78rem; background: var(--bg-surface-elevated); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);">Scikit-Learn</span>
+              <span style="font-size: 0.78rem; background: var(--bg-surface-elevated); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);">CAN Bus</span>
+            </div>
+            <div style="display: flex; gap: 12px;">
+              <a href="./cav" class="btn btn-primary btn-sm" style="flex: 1; text-align: center; justify-content: center;">Read Case Study</a>
+              <a href="https://github.com/FarhaAmeen12/CAV-Anomaly-Detection" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" aria-label="CAV GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="../#home" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back to Homepage
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content" style="text-align: center; padding: 32px 0;">
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        &copy; 2026 Farha. Professional Developer Portfolio & Case Studies.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../app.js"></script>
+</body>
+</html>

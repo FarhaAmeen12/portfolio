@@ -1,0 +1,21 @@
+{
+  "name": "farha-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Professional Developer Portfolio & Admin CMS for Farha",
+  "scripts": {
+    "dev": "node -e \"console.log('Static & Serverless API portfolio ready')\"",
+    "build": "prisma generate || echo 'Prisma generated or skipped'",
+    "postinstall": "prisma generate || true",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0"
+  }
+}

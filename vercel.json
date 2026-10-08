@@ -1,6 +1,33 @@
 {
   "version": 2,
   "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/admin/login",
+      "destination": "/admin/login.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/projects/saferide",
+      "destination": "/projects/saferide.html"
+    },
+    {
+      "source": "/projects/spendify",
+      "destination": "/projects/spendify.html"
+    },
+    {
+      "source": "/projects/cav",
+      "destination": "/projects/cav.html"
+    },
+    {
+      "source": "/projects/:slug",
+      "destination": "/projects/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -11,7 +38,7 @@
         },
         {
           "key": "X-Frame-Options",
-          "value": "DENY"
+          "value": "SAMEORIGIN"
         },
         {
           "key": "X-XSS-Protection",
